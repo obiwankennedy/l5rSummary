@@ -1,0 +1,15 @@
+<RCC>
+    <qresource prefix="/">
+        <file>images/Haneki.jpg</file>
+        <file>images/YogoUnmei.png</file>
+        <file>images/Akodo_Eiichi.jpg</file>
+        <file>images/doji_taehime.jpg</file>
+        <file>images/l5r-logo-2015.png</file>
+        <file>images/hida.jpg</file>
+        <file>images/tsuruchi.jpg</file>
+        <file>images/Zhia.jpg</file>
+        <file>images/Mirumoto.jpg</file>
+        <file>images/Bayushi_Takayoshi.png</file>
+        <file>images/Second_City_2.jpg</file>
+    </qresource>
+</RCC>

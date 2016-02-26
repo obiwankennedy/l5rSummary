@@ -5,9 +5,14 @@ import QtQml.Models 2.2
 
 Window {
     visible: true
-    visibility: "FullScreen"
+    width: 1200
+    height: 920
+    //visibility: "FullScreen"
     MainForm {
         id: form
+        onStateChanged: {
+            console.log(state);
+        }
         anchors.fill: parent
         Keys.onPressed: {
             if (event.key == Qt.Key_Left)
@@ -26,23 +31,136 @@ Window {
                     Item {
                           x: 0
                           width: form.widthCharacter
-                          height: 100
-                          Column {
-                              id: row1
+                          height: 180
                               Image {
+                                  id: img
+                                  anchors.top : parent.top
                                   width: parent.width
-                                  height: 100
+                                  height: 160
                                   source: image
                                   fillMode: Image.PreserveAspectFit
                               }
                               Text {
+                                  anchors.top :img.bottom
+                                  anchors.topMargin: img.sourceSize.height > img.sourceSize.width ? img.paintedHeight-img.height : (img.paintedHeight-img.height)/2
                                   text: name
+                                  width: parent.width
                                   font.bold: true
-                              }
-                              spacing: 10
-                          }
+                                  color: "#ffffff"
+                                  font.pixelSize: 20
+                                  horizontalAlignment: Text.AlignHCenter
+                              }     
                       }
                 }
+        ListModel {
+            id: keyModel1
+            ListElement {
+                word: "Dans la peau d'un bakemono"
+                desc: ""
+            }
+            ListElement {
+                word: "Terriroire Crabe"
+                desc: ""
+            }
+            ListElement {
+                word: "Echec"
+                desc: ""
+            }
+            ListElement {
+                word: "Miya Akamu"
+                desc: ""
+            }
+        }
+        ListModel {
+            id: keyModel2
+            ListElement {
+                word: "Campagne Second City"
+                desc: ""
+            }
+            ListElement {
+                word: "Gain d'XP pour le MJ"
+                desc: ""
+            }
+            ListElement {
+                word: "Lutte Lion vs Grue"
+                desc: ""
+            }
+            ListElement {
+                word: "Le gros méchant"
+                desc: ""
+            }
+            ListElement {
+                word: "Avantages"
+                desc: " Facile, Enquete, Variée, introduction Jeu/Settings"
+            }
+            ListElement {
+                word: "Désavantages"
+                desc: " Linéaire, Perte d'intéret du Mj, difficile pour joueur Expérimenté"
+            }
+        }
+        ListModel {
+            id: keyModel3
+            ListElement {
+                word: "Enquete, voyage"
+                desc: ""
+            }
+            ListElement {
+                word: "Otomo Akio"
+                desc: "Courtisan, "
+                img:"images/OtomoAkio.png"
+            }
+            ListElement {
+                word: "Ide Sadeo"
+                desc: ""
+                img:""
+            }
+        }
+        ListModel {
+            id: keyModel4
+            ListElement {
+                word: "Kitsune Hideko"
+                desc: "Village et lutte contre les Araignées."
+                img: "images/KitsuneHideko.png"
+            }
+            ListElement {
+                word: "Hida Shigehero"
+                desc: "Départ"
+                img:""
+            }
+            ListElement {
+                word: "Akodo Eiichi & Bayushi Takayoshi"
+                desc: "Arrivée"
+                img:""
+            }
+            ListElement {
+                word: "Sosuke"
+                desc: "L'amateur/Auteur de théatre"
+                img:""
+            }
+        }
+        ListModel {
+            id: keyModel5
+            ListElement {
+                word: "Mort du méchant"
+                desc: "Tsuruchi Nayu"
+                img: "images/KitsuneHideko.png"
+            }
+            ListElement {
+                word: "Hida Shigehero"
+                desc: "Départ"
+                img:""
+            }
+            ListElement {
+                word: "Akodo Eiichi & Bayushi Takayoshi"
+                desc: "Arrivée"
+                img:""
+            }
+            ListElement {
+                word: "Sosuke"
+                desc: "L'amateur/Auteur de théatre"
+                img:""
+            }
+        }
         ListModel {
                     id: myModel
                     ListElement {
@@ -54,26 +172,26 @@ Window {
                     ListElement {
                         name: "Mirumoto Sastume"
                         image: "images/Mirumoto.jpg"
-                        begin: 2
-                        end: 5
+                        begin: 3
+                        end: 3
                     }
                     ListElement {
                         name: "Hida Shigehiro"
                         image: "images/hida.jpg"
                         begin: 1
-                        end: 5
+                        end: 3
                     }
                     ListElement {
                         name: "Bayushi Takayoshi"
                         image: "images/Bayushi_Takayoshi.png"
-                        begin: 3
+                        begin: 4
                         end: 10
                     }
                     ListElement {
                         name: "Tsuruchi Nayu"
                         image: "images/tsuruchi.jpg"
-                        begin: 3
-                        end: 10
+                        begin: 4
+                        end: 6
                     }
                     ListElement {
                         name: "Shinjo Zhia"
@@ -96,7 +214,7 @@ Window {
                     ListElement {
                         name: "Akodo Eiichi"
                         image: "images/Akodo_Eiichi.jpg"
-                        begin: 3
+                        begin: 4
                         end: 10
                     }
                 }
@@ -114,8 +232,11 @@ Window {
                 ]
                 filterOnGroup: "shown"
                 onStateIdChanged: {
+                    console.log("stateid:"+stateId)
+                    var countValue = items.count
                     var rowCount = myModel.count;
-                    items.remove(0,rowCount);
+                    items.removeGroups(0,countValue,"shown");
+                    items.remove(0,countValue)
                     for( var i = 0;i < rowCount;i++ )
                     {
                         var entry = myModel.get(i);

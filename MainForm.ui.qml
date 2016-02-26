@@ -9,20 +9,20 @@ Rectangle {
     anchors.fill: parent
     focus: true
     color: "#000000"
+    width: 1200
+    height: 920
 
 
     ListView {
         id: characterList
-        x: 250
-        y: 0
-        width: 110
-        height: 360
+        width: 220
+        height: parent.width
         visible: false
-        anchors.bottom: parent.bottom
         anchors.top: parent.top
+        anchors.bottom: parent.bottom
         anchors.right: parent.right
         model: firstModel
-
+        spacing: 1
     }
     Text {
             id: text1
@@ -57,38 +57,39 @@ Rectangle {
         source: "images/l5r-logo-2015.png"
     }
 
-    Image {
-        id: image2
-        x: 64
-        y: 211
-        width: 100
-        height: 100
-        source: "qrc:/qtquickplugin/images/template_image.png"
-        opacity: 0
-    }
+    ListView {
+        id: keywordList
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.verticalCenter: parent.verticalCenter
+        width: parent.width/2
+        height:parent.height/2
+        delegate: Item {
+            height: 40
+                Text {
+                    id:title
+                    width: parent.width
+                    text: "<b>-"+word+"</b>"
+                    color:"#ffffff"
+                }
+                Text {
+                    anchors.top:title.bottom
+                    width: parent.width
+                    text: desc
+                    color:"#ffffff"
+                }
+            }
 
-    Image {
-        id: image3
-        x: 222
-        y: 211
-        width: 100
-        height: 100
-        source: "qrc:/qtquickplugin/images/template_image.png"
-        opacity: 0
-    }
-
-    Image {
-        id: image4
-        x: 386
-        y: 211
-        width: 100
-        height: 100
-        source: "qrc:/qtquickplugin/images/template_image.png"
-        opacity: 0
+        visible:false
+        model:keyModel1
+        spacing: 10
     }
 
 
 states: [
+    State {
+        name: ""
+        when: stateId == 0
+    },
     State {
         name: "First"
         when: stateId == 1
@@ -99,8 +100,21 @@ states: [
         }
         PropertyChanges {
             target: image1
-            source: "images/Second_City_2.jpg"
-            visible: false
+            x: 0
+            source: "images/Battle_of_the_Burning_Wall.jpg"
+            visible: true
+            anchors.bottom: parent.bottom
+            height: 200
+            anchors.verticalCenterOffset: 230
+            anchors.bottomMargin: -230
+            sourceSize.height: 200
+            sourceSize.width: 200
+            width: 200
+            anchors.top: undefined
+            anchors.right: undefined
+            anchors.left: undefined
+            anchors.verticalCenter: parent.verticalCenter
+            scale:0.5
         }
 
         PropertyChanges {
@@ -114,67 +128,141 @@ states: [
             antialiasing: true
             scale: 0.8
         }
-
         PropertyChanges {
-            target: rectangle1
-            antialiasing: true
+            target: keywordList
+            anchors.verticalCenterOffset: 70
+            anchors.horizontalCenterOffset: -200
+            visible: true
+        }
+        PropertyChanges {
+            target: text1
+            visible: true
+            opacity: 1
+            text: qsTr("Premier Scénario")
         }
     },
     State {
         name: "second"
+        when: stateId == 2
         PropertyChanges {
             target: characterList
-            x: 250
             visible: true
         }
-
         PropertyChanges {
             target: image1
-            anchors.rightMargin: 8
-            anchors.bottomMargin: -270
-            anchors.leftMargin: -8
-            anchors.topMargin: 270
-            source: "images/Second_City_2.jpg"
             visible: false
         }
-
-        PropertyChanges {
-            target: text1
-            x: 3
-            y: 2380
-            height: 62
-            anchors.rightMargin: 8
-            anchors.leftMargin: -8
-            anchors.topMargin: 318
-            visible: false
-            opacity: 1
-        }
-
         PropertyChanges {
             target: logo
             horizontalAlignment: Image.AlignLeft
+            antialiasing: true
             scale: 0.8
+        }
+        PropertyChanges {
+            target: text1
+            visible: true
+            opacity: 1
+            text: qsTr("Début de la campagne")
+        }
+        PropertyChanges {
+            target: keywordList
+            model: keyModel2
+            anchors.verticalCenterOffset: 70
+            anchors.horizontalCenterOffset: -200
+            visible: true
+        }
+    },
+    State {
+        name: "third"
+        when: stateId == 3
+        PropertyChanges {
+            target: characterList
+            visible: true
+        }
+        PropertyChanges {
+            target: image1
+            visible: false
+        }
+        PropertyChanges {
+            target: logo
+            horizontalAlignment: Image.AlignLeft
             antialiasing: true
+            scale: 0.8
         }
-
         PropertyChanges {
-            target: rectangle1
+            target: text1
+            visible: true
+            opacity: 1
+            text: qsTr("Campagne:")
+        }
+        PropertyChanges {
+            target: keywordList
+            model: keyModel3
+            anchors.verticalCenterOffset: 70
+            anchors.horizontalCenterOffset: -200
+            visible: true
+        }
+    },
+    State {
+        name: "fourth"
+        when: stateId == 4
+        PropertyChanges {
+            target: characterList
+            visible: true
+        }
+        PropertyChanges {
+            target: image1
+            visible: false
+        }
+        PropertyChanges {
+            target: logo
+            horizontalAlignment: Image.AlignLeft
             antialiasing: true
+            scale: 0.8
         }
-
         PropertyChanges {
-            target: image2
+            target: text1
+            visible: true
             opacity: 1
+            text: qsTr("Sur le trajet")
         }
-
         PropertyChanges {
-            target: image3
-            opacity: 1
+            target: keywordList
+            model: keyModel4
+            anchors.verticalCenterOffset: 70
+            anchors.horizontalCenterOffset: -200
+            visible: true
         }
-
+    },
+    State {
+        name: "fifth"
+        when: stateId == 5
         PropertyChanges {
-            target: image4
+            target: characterList
+            visible: true
+        }
+        PropertyChanges {
+            target: image1
+            visible: false
+        }
+        PropertyChanges {
+            target: logo
+            horizontalAlignment: Image.AlignLeft
+            antialiasing: true
+            scale: 0.8
+        }
+        PropertyChanges {
+            target: text1
+            visible: true
             opacity: 1
+            text: qsTr("Fin de la campagne Officielle")
+        }
+        PropertyChanges {
+            target: keywordList
+            model: keyModel5
+            anchors.verticalCenterOffset: 70
+            anchors.horizontalCenterOffset: -200
+            visible: true
         }
     }
     ]

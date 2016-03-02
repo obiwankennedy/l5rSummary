@@ -23,6 +23,7 @@ Rectangle {
         anchors.right: parent.right
         model: firstModel
         spacing: 1
+        opacity:0
     }
     Text {
             id: text1
@@ -50,10 +51,12 @@ Rectangle {
     Image {
         id: logo
         height: 200
+        x:parent.width/2-150
+        y:0
         fillMode: Image.PreserveAspectFit
-        anchors.top: parent.top
+        /*anchors.top: parent.top
         anchors.left: parent.left
-        anchors.right: parent.right
+        anchors.right: parent.right*/
         source: "images/l5r-logo-2015.png"
     }
 
@@ -97,6 +100,7 @@ states: [
             target: characterList
             x: 250
             visible: true
+            opacity: 1
         }
         PropertyChanges {
             target: image1
@@ -124,7 +128,7 @@ states: [
 
         PropertyChanges {
             target: logo
-            horizontalAlignment: Image.AlignLeft
+            x:parent.width/6-150
             antialiasing: true
             scale: 0.8
         }
@@ -154,7 +158,7 @@ states: [
         }
         PropertyChanges {
             target: logo
-            horizontalAlignment: Image.AlignLeft
+            x:parent.width/6-150
             antialiasing: true
             scale: 0.8
         }
@@ -185,7 +189,7 @@ states: [
         }
         PropertyChanges {
             target: logo
-            horizontalAlignment: Image.AlignLeft
+            x:parent.width/6-150
             antialiasing: true
             scale: 0.8
         }
@@ -216,7 +220,7 @@ states: [
         }
         PropertyChanges {
             target: logo
-            horizontalAlignment: Image.AlignLeft
+            x:parent.width/6-150
             antialiasing: true
             scale: 0.8
         }
@@ -247,7 +251,7 @@ states: [
         }
         PropertyChanges {
             target: logo
-            horizontalAlignment: Image.AlignLeft
+            x:parent.width/6-150
             antialiasing: true
             scale: 0.8
         }
@@ -265,5 +269,28 @@ states: [
             visible: true
         }
     }
+    ]
+
+    transitions: [
+        Transition {
+            from: ""
+            to: "First"
+            NumberAnimation { target: logo; properties: "x"; duration: 200 }
+        },
+        Transition {
+            from: "First"
+            to: "second"
+            ColorAnimation { target: button; duration: 100}
+        },
+        Transition {
+            from: "First"
+            to: "second"
+            ColorAnimation { target: button; duration: 100}
+        },
+        Transition {
+            from: "First"
+            to: "second"
+            ColorAnimation { target: button; duration: 100}
+        }
     ]
 }

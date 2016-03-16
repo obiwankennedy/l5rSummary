@@ -165,7 +165,7 @@ Window {
             id: keyModel6
             ListElement {
                 word: "Les lions perdus"
-                desc: "Une enquête un peu trop poussé"
+                desc: "Une enquête un peu trop poussée"
                 img: ""
             }
             ListElement {

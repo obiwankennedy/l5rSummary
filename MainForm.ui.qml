@@ -40,12 +40,15 @@ Rectangle {
     }
     Image {
         id: image1
-        anchors.top: text1.bottom
-        anchors.bottom: parent.bottom
-        anchors.right: parent.right
-        anchors.left: parent.left
+        anchors.verticalCenter: parent.verticalCenter
+        anchors.horizontalCenter: parent.horizontalCenter
+        height: parent.height/2
         fillMode: Image.PreserveAspectFit
         source: "images/Second_City_2.jpg"
+        NumberAnimation on opacity { duration:1000; easing:Easing.InOutBack  }
+        onOpacityChanged: {
+            console.log("test opacity");
+        }
     }
 
     Image {
@@ -54,9 +57,6 @@ Rectangle {
         x:parent.width/2-150
         y:0
         fillMode: Image.PreserveAspectFit
-        /*anchors.top: parent.top
-        anchors.left: parent.left
-        anchors.right: parent.right*/
         source: "images/l5r-logo-2015.png"
     }
 
@@ -114,13 +114,13 @@ states: [
             sourceSize.height: 200
             sourceSize.width: 200
             width: 200
-            anchors.top: undefined
-            anchors.right: undefined
-            anchors.left: undefined
             anchors.verticalCenter: parent.verticalCenter
-            scale:0.5
+            opacity:0
         }
-
+        PropertyChanges {
+            target: image1
+            opacity:1
+        }
         PropertyChanges {
             target: text1
             opacity: 0

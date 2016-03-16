@@ -232,7 +232,6 @@ Window {
                 ]
                 filterOnGroup: "shown"
                 onStateIdChanged: {
-                    console.log("stateid:"+stateId)
                     var countValue = items.count
                     var rowCount = myModel.count;
                     items.removeGroups(0,countValue,"shown");

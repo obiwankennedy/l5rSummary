@@ -45,7 +45,6 @@ Rectangle {
         height: parent.height/2
         fillMode: Image.PreserveAspectFit
         source: "images/Second_City_2.jpg"
-        NumberAnimation on opacity { duration:1000; easing:Easing.InOutBack  }
         onOpacityChanged: {
             console.log("test opacity");
         }
@@ -151,6 +150,7 @@ states: [
         PropertyChanges {
             target: characterList
             visible: true
+            opacity: 1
         }
         PropertyChanges {
             target: image1
@@ -182,6 +182,7 @@ states: [
         PropertyChanges {
             target: characterList
             visible: true
+            opacity: 1
         }
         PropertyChanges {
             target: image1
@@ -213,6 +214,7 @@ states: [
         PropertyChanges {
             target: characterList
             visible: true
+            opacity: 1
         }
         PropertyChanges {
             target: image1
@@ -244,6 +246,7 @@ states: [
         PropertyChanges {
             target: characterList
             visible: true
+            opacity: 1
         }
         PropertyChanges {
             target: image1
@@ -264,6 +267,38 @@ states: [
         PropertyChanges {
             target: keywordList
             model: keyModel5
+            anchors.verticalCenterOffset: 70
+            anchors.horizontalCenterOffset: -200
+            visible: true
+        }
+    },
+    State {
+        name: "sixth"
+        when: stateId == 6
+        PropertyChanges {
+            target: characterList
+            visible: true
+            opacity: 1
+        }
+        PropertyChanges {
+            target: image1
+            visible: false
+        }
+        PropertyChanges {
+            target: logo
+            x:parent.width/6-150
+            antialiasing: true
+            scale: 0.8
+        }
+        PropertyChanges {
+            target: text1
+            visible: true
+            opacity: 1
+            text: qsTr("Campagne Maison")
+        }
+        PropertyChanges {
+            target: keywordList
+            model: keyModel6
             anchors.verticalCenterOffset: 70
             anchors.horizontalCenterOffset: -200
             visible: true

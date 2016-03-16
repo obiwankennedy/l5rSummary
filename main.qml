@@ -162,6 +162,29 @@ Window {
             }
         }
         ListModel {
+            id: keyModel6
+            ListElement {
+                word: "Les lions perdus"
+                desc: "Une enquête un peu trop poussé"
+                img: ""
+            }
+            ListElement {
+                word: "La magistrature"
+                desc: "Organisation et politique"
+                img:""
+            }
+            ListElement {
+                word: "La piraterie"
+                desc: "La chasse est ouverte"
+                img:""
+            }
+            ListElement {
+                word: "Le domaine de Shinjo Zhia"
+                desc: "Arrivée"
+                img:""
+            }
+        }
+        ListModel {
                     id: myModel
                     ListElement {
                         name: "Doji Taehime"

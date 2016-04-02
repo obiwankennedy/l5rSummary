@@ -55,6 +55,10 @@ Window {
         ListModel {
             id: keyModel1
             ListElement {
+                word: "Les chiffres:"
+                desc: "Novembre 2013,11 joueurs"
+            }
+            ListElement {
                 word: "Dans la peau d'un bakemono"
                 desc: ""
             }

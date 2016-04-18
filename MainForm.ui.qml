@@ -67,6 +67,13 @@ Rectangle {
         height:parent.height/2
         delegate: Item {
             height: 40
+            Image {
+                source: img
+                anchors.top: parent.top
+                anchors.right: parent.right
+                width:600
+
+            }
                 Text {
                     id:title
                     width: parent.width
@@ -74,11 +81,14 @@ Rectangle {
                     color:"#ffffff"
                 }
                 Text {
+                    id: subtitle
                     anchors.top:title.bottom
+                    anchors.right: parent.right
                     width: parent.width
                     text: desc
                     color:"#ffffff"
                 }
+
             }
 
         visible:false
@@ -93,8 +103,55 @@ states: [
         when: stateId == 0
     },
     State {
-        name: "First"
+        name: "Zero"
         when: stateId == 1
+        PropertyChanges {
+            target: characterList
+            x: 250
+            visible: false
+            opacity: 0
+        }
+        PropertyChanges {
+            target: image1
+            source: "images/Rokugan_4th_Edition.jpg"
+            visible: true
+            anchors.bottom: parent.bottom
+            //anchors.verticalCenterOffset: 230
+            //anchors.bottomMargin: -230
+            //sourceSize.height: 600
+            //sourceSize.width: 600
+            height: 800
+            width:800
+            anchors.verticalCenter: parent.verticalCenter
+            opacity:1
+        }
+        PropertyChanges {
+            target: text1
+            opacity: 0
+        }
+        PropertyChanges {
+            target: logo
+            x:parent.width/6-150
+            antialiasing: true
+            scale: 0.8
+        }
+        PropertyChanges {
+            target: keywordList
+            model: keyModel0
+            anchors.verticalCenterOffset: 70
+            anchors.horizontalCenterOffset: -200
+            visible: true
+        }
+        PropertyChanges {
+            target: text1
+            visible: true
+            opacity: 1
+            text: qsTr("Întroduction")
+        }
+    },
+    State {
+        name: "First"
+        when: stateId == 2
         PropertyChanges {
             target: characterList
             x: 250
@@ -107,12 +164,10 @@ states: [
             source: "images/Battle_of_the_Burning_Wall.jpg"
             visible: true
             anchors.bottom: parent.bottom
-            height: 200
+            height: 600
             anchors.verticalCenterOffset: 230
             anchors.bottomMargin: -230
-            sourceSize.height: 200
-            sourceSize.width: 200
-            width: 200
+            width: 600
             anchors.verticalCenter: parent.verticalCenter
             opacity:0
         }
@@ -133,6 +188,7 @@ states: [
         }
         PropertyChanges {
             target: keywordList
+            model: keyModel1
             anchors.verticalCenterOffset: 70
             anchors.horizontalCenterOffset: -200
             visible: true
@@ -146,7 +202,7 @@ states: [
     },
     State {
         name: "second"
-        when: stateId == 2
+        when: stateId == 3
         PropertyChanges {
             target: characterList
             visible: true
@@ -178,7 +234,7 @@ states: [
     },
     State {
         name: "third"
-        when: stateId == 3
+        when: stateId == 4
         PropertyChanges {
             target: characterList
             visible: true
@@ -210,7 +266,7 @@ states: [
     },
     State {
         name: "fourth"
-        when: stateId == 4
+        when: stateId == 5
         PropertyChanges {
             target: characterList
             visible: true
@@ -242,7 +298,7 @@ states: [
     },
     State {
         name: "fifth"
-        when: stateId == 5
+        when: stateId == 6
         PropertyChanges {
             target: characterList
             visible: true
@@ -274,7 +330,7 @@ states: [
     },
     State {
         name: "sixth"
-        when: stateId == 6
+        when: stateId == 7
         PropertyChanges {
             target: characterList
             visible: true
@@ -309,7 +365,7 @@ states: [
     transitions: [
         Transition {
             from: ""
-            to: "First"
+            to: "Zero"
             NumberAnimation { target: logo; properties: "x"; duration: 200 }
         },
         Transition {

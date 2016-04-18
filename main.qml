@@ -53,11 +53,35 @@ Window {
                       }
                 }
         ListModel {
-            id: keyModel1
+            id: keyModel0
             ListElement {
-                word: "Les chiffres:"
+                word: "Contexte de la vidéo:"
+                desc: ""
+            }
+            ListElement {
+                word: "Rolisteam"
+                desc: ""
+            }
+            ListElement {
+                word: "L5R"
+                desc: ""
+               // img: "images/Rokugan_4th_Edition.jpg"
+            }
+            ListElement {
+                word: "Les Clans"
+                desc: ""
+            }
+            ListElement {
+                word: "Timeline"
+                desc: ""
+            }
+            ListElement {
+                word: "Chiffres"
                 desc: "Novembre 2013,11 joueurs"
             }
+        }
+        ListModel {
+            id: keyModel1
             ListElement {
                 word: "Dans la peau d'un bakemono"
                 desc: ""

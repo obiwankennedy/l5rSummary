@@ -232,7 +232,7 @@ states: [
             visible: true
         }
     },
-    State {
+   /* State {
         name: "third"
         when: stateId == 4
         PropertyChanges {
@@ -263,10 +263,10 @@ states: [
             anchors.horizontalCenterOffset: -200
             visible: true
         }
-    },
+    },*/
     State {
         name: "fourth"
-        when: stateId == 5
+        when: stateId == 4
         PropertyChanges {
             target: characterList
             visible: true
@@ -296,7 +296,7 @@ states: [
             visible: true
         }
     },
-    State {
+    /*State {
         name: "fifth"
         when: stateId == 6
         PropertyChanges {
@@ -327,10 +327,10 @@ states: [
             anchors.horizontalCenterOffset: -200
             visible: true
         }
-    },
+    },*/
     State {
         name: "sixth"
-        when: stateId == 7
+        when: stateId == 5
         PropertyChanges {
             target: characterList
             visible: true

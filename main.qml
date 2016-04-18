@@ -126,25 +126,19 @@ Window {
                 desc: " Linéaire, Perte d'intéret du Mj, difficile pour joueur Expérimenté"
             }
         }
+
         ListModel {
-            id: keyModel3
-            ListElement {
-                word: "Enquete, voyage"
-                desc: ""
-            }
+            id: keyModel4
             ListElement {
                 word: "Otomo Akio"
-                desc: "Courtisan, "
+                desc: "Courtisan, Collection d'art"
                 img:"images/OtomoAkio.png"
             }
             ListElement {
                 word: "Ide Sadeo"
-                desc: ""
+                desc: "Marchant Victime"
                 img:""
             }
-        }
-        ListModel {
-            id: keyModel4
             ListElement {
                 word: "Kitsune Hideko"
                 desc: "Village et lutte contre les Araignées."
@@ -165,28 +159,10 @@ Window {
                 desc: "L'amateur/Auteur de théatre"
                 img:""
             }
-        }
-        ListModel {
-            id: keyModel5
             ListElement {
                 word: "Mort du méchant"
                 desc: "Tsuruchi Nayu"
                 img: "images/KitsuneHideko.png"
-            }
-            ListElement {
-                word: "Hida Shigehero"
-                desc: "Départ"
-                img:""
-            }
-            ListElement {
-                word: "Akodo Eiichi & Bayushi Takayoshi"
-                desc: "Arrivée"
-                img:""
-            }
-            ListElement {
-                word: "Sosuke"
-                desc: "L'amateur/Auteur de théatre"
-                img:""
             }
         }
         ListModel {

@@ -15,12 +15,12 @@ Window {
         }
         anchors.fill: parent
         Keys.onPressed: {
-            if (event.key == Qt.Key_Left)
+            if (event.key === Qt.Key_Left)
             {
                 stateId=stateId-1;
                 event.accepted = true;
             }
-            else if(event.key == Qt.Key_Right)
+            else if(event.key === Qt.Key_Right)
             {
                 stateId=stateId+1;
                 event.accepted = true;
@@ -59,10 +59,6 @@ Window {
                 desc: ""
             }
             ListElement {
-                word: "Rolisteam"
-                desc: ""
-            }
-            ListElement {
                 word: "L5R"
                 desc: ""
                // img: "images/Rokugan_4th_Edition.jpg"
@@ -79,6 +75,10 @@ Window {
                 word: "Chiffres"
                 desc: "Novembre 2013,11 joueurs"
             }
+            ListElement {
+                word: "Rolisteam"
+                desc: ""
+            }
         }
         ListModel {
             id: keyModel1
@@ -91,7 +91,7 @@ Window {
                 desc: ""
             }
             ListElement {
-                word: "Echec"
+                word: "Echec de la mission"
                 desc: ""
             }
             ListElement {
@@ -99,7 +99,7 @@ Window {
                 desc: ""
             }
         }
-        ListModel {
+        ListModel {//Campagne officielle
             id: keyModel2
             ListElement {
                 word: "Campagne Second City"
@@ -107,10 +107,6 @@ Window {
             }
             ListElement {
                 word: "Gain d'XP pour le MJ"
-                desc: ""
-            }
-            ListElement {
-                word: "Lutte Lion vs Grue"
                 desc: ""
             }
             ListElement {
@@ -126,29 +122,12 @@ Window {
                 desc: " Linéaire, Perte d'intéret du Mj, difficile pour joueur Expérimenté"
             }
         }
-        ListModel {
-            id: keyModel3
-            ListElement {
-                word: "Enquete, voyage"
-                desc: ""
-            }
-            ListElement {
-                word: "Otomo Akio"
-                desc: "Courtisan, "
-                img:"images/OtomoAkio.png"
-            }
-            ListElement {
-                word: "Ide Sadeo"
-                desc: ""
-                img:""
-            }
-        }
-        ListModel {
+        ListModel {//Campagne Officielle: La dernière ligne droite
             id: keyModel4
             ListElement {
                 word: "Kitsune Hideko"
                 desc: "Village et lutte contre les Araignées."
-                img: "images/KitsuneHideko.png"
+                img: "http://vignette3.wikia.nocookie.net/l5r/images/0/09/Kitsune_Ohsuki_2.jpg/revision/latest/scale-to-width-down/554?cb=20141101230857"
             }
             ListElement {
                 word: "Hida Shigehero"
@@ -156,37 +135,47 @@ Window {
                 img:""
             }
             ListElement {
-                word: "Akodo Eiichi & Bayushi Takayoshi"
+                word: "Akodo Eiichi et Bayushi Takayoshi"
                 desc: "Arrivée"
                 img:""
             }
             ListElement {
-                word: "Sosuke"
+                word: "Guerre Mante vs Araignée"
                 desc: "L'amateur/Auteur de théatre"
+                img:""
+            }
+            ListElement {
+                word: "Rencontre avec Daigotsu Yukuko et son père Daigotsu Shuuki"
+                desc: "Une caserne Araignée avec Ivindi en colère"
                 img:""
             }
         }
-        ListModel {
+        ListModel {//Campagne Officielle : La fin
             id: keyModel5
             ListElement {
                 word: "Mort du méchant"
-                desc: "Tsuruchi Nayu"
-                img: "images/KitsuneHideko.png"
+                desc: "par Tsuruchi Nayu"
+                img: "images/tsuruchi.jpg"
             }
             ListElement {
-                word: "Hida Shigehero"
-                desc: "Départ"
-                img:""
-            }
-            ListElement {
-                word: "Akodo Eiichi & Bayushi Takayoshi"
-                desc: "Arrivée"
+                word: "Bilan de campagne"
+                desc: "Une victoire dans l'ombre"
                 img:""
             }
             ListElement {
                 word: "Sosuke"
                 desc: "L'amateur/Auteur de théatre"
                 img:""
+            }
+            ListElement {
+                word: "Otomo Akio"
+                desc: "Ils ont promis à Bayushi Toshiko de le faire dégager"
+                img:"images/OtomoAkio.png"
+            }
+            ListElement {
+                word: "Ide Sadeo"
+                desc: "Victime malgré lui, promesse de Shinjo Zhia"
+                img: ""
             }
         }
         ListModel {
@@ -242,7 +231,7 @@ Window {
                         name: "Tsuruchi Nayu"
                         image: "images/tsuruchi.jpg"
                         begin: 4
-                        end: 6
+                        end: 10
                     }
                     ListElement {
                         name: "Shinjo Zhia"

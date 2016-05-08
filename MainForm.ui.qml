@@ -222,7 +222,7 @@ states: [
             target: text1
             visible: true
             opacity: 1
-            text: qsTr("Début de la campagne")
+            text: qsTr("La Campagne Officielle")
         }
         PropertyChanges {
             target: keywordList
@@ -233,7 +233,7 @@ states: [
         }
     },
     State {
-        name: "third"
+        name: "fourth"
         when: stateId == 4
         PropertyChanges {
             target: characterList
@@ -254,18 +254,18 @@ states: [
             target: text1
             visible: true
             opacity: 1
-            text: qsTr("Campagne:")
+            text: qsTr("Campagne Officielle: La dernière ligne droite")
         }
         PropertyChanges {
             target: keywordList
-            model: keyModel3
+            model: keyModel4
             anchors.verticalCenterOffset: 70
             anchors.horizontalCenterOffset: -200
             visible: true
         }
     },
     State {
-        name: "fourth"
+        name: "fifth"
         when: stateId == 5
         PropertyChanges {
             target: characterList
@@ -286,39 +286,7 @@ states: [
             target: text1
             visible: true
             opacity: 1
-            text: qsTr("Sur le trajet")
-        }
-        PropertyChanges {
-            target: keywordList
-            model: keyModel4
-            anchors.verticalCenterOffset: 70
-            anchors.horizontalCenterOffset: -200
-            visible: true
-        }
-    },
-    State {
-        name: "fifth"
-        when: stateId == 6
-        PropertyChanges {
-            target: characterList
-            visible: true
-            opacity: 1
-        }
-        PropertyChanges {
-            target: image1
-            visible: false
-        }
-        PropertyChanges {
-            target: logo
-            x:parent.width/6-150
-            antialiasing: true
-            scale: 0.8
-        }
-        PropertyChanges {
-            target: text1
-            visible: true
-            opacity: 1
-            text: qsTr("Fin de la campagne Officielle")
+            text: qsTr("Campagne Officielle : La fin")
         }
         PropertyChanges {
             target: keywordList
@@ -330,7 +298,7 @@ states: [
     },
     State {
         name: "sixth"
-        when: stateId == 7
+        when: stateId == 6
         PropertyChanges {
             target: characterList
             visible: true

@@ -99,7 +99,7 @@ Window {
                 desc: ""
             }
         }
-        ListModel {
+        ListModel {//Campagne officielle
             id: keyModel2
             ListElement {
                 word: "Campagne Second City"
@@ -161,8 +161,8 @@ Window {
             }
             ListElement {
                 word: "Mort du méchant"
-                desc: "Tsuruchi Nayu"
-                img: "images/KitsuneHideko.png"
+                desc: "par Tsuruchi Nayu"
+                img: "images/tsuruchi.jpg"
             }
         }
         ListModel {

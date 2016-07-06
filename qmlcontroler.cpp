@@ -20,7 +20,7 @@
 #include "qmlcontroler.h"
 #include "ui_qmlcontroler.h"
 #include <QDebug>
-#include "cpphighlighter.h"
+//#include "cpphighlighter.h"
 #include <QQuickTextDocument>
 
 template <class T> T childObject(QQmlApplicationEngine& engine,

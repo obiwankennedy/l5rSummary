@@ -1,6 +1,12 @@
 <RCC>
     <qresource prefix="/">
         <file>main.qml</file>
-        <file>MainForm.ui.qml</file>
+        <file>pages/00_intro.qml</file>
+        <file>pages/01_definitions.qml</file>
+        <file>pages/02_premierscenario.qml</file>
+        <file>pages/03_debutcampagne.qml</file>
+        <file>pages/04_trajet.qml</file>
+        <file>pages/05_fincampagne.qml</file>
+        <file>pages/06_campagnemaison.qml</file>
     </qresource>
 </RCC>

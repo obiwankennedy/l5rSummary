@@ -2,6 +2,7 @@
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
 #include <QQuickTextDocument>
+#include <QDesktopWidget>
 
 #include "qmlcontroler.h"
 
@@ -11,8 +12,16 @@ int main(int argc, char *argv[])
 
     QQmlApplicationEngine engine;
 
-    engine.rootContext()->setContextProperty("ScreenW",1980);
-    engine.rootContext()->setContextProperty("ScreenH",1280);
+    QRect rec = QApplication::desktop()->screenGeometry();
+    int height = rec.height();
+    int width = rec.width();
+
+    engine.rootContext()->setContextProperty("ScreenW",width);
+    engine.rootContext()->setContextProperty("ScreenH",height);
+
+    engine.rootContext()->setContextProperty("ScreenW",1280);
+    engine.rootContext()->setContextProperty("ScreenH",720);
+
 
     engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
 

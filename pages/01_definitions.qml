@@ -36,14 +36,15 @@ Rectangle {
         font.pixelSize: ScreenH/20
     }
     focus: true
-    Keys.onUpPressed: {
-        --idState;
-    }
-    Keys.onDownPressed: {
-        ++idState
-    }
-    onIdStateChanged: {
-        trigger.start()
+    Keys.onPressed: {
+        if( event.key === Qt.Key_PageUp )
+        {
+            decrementCurrentIndex()
+        }
+        else if ( event.key === Qt.Key_PageDown )
+        {
+            incrementCurrentIndex()
+        }
     }
 
     Timer {

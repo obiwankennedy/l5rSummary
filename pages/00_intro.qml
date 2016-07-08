@@ -3,7 +3,7 @@ import QtQuick.Window 2.2
 
 Rectangle {
     id: rectangle1
-    width: ScreenW //ScreenW
+    width: ScreenW //
     height: ScreenH //ScreenH
     //  height: 600
     //  anchors.centerIn: parent
@@ -22,7 +22,7 @@ Rectangle {
 
     Text {
         id: text1
-        anchors.top:image1.bottom
+        anchors.top:parent.top
         anchors.horizontalCenter: parent.horizontalCenter
         width: ScreenW*0.5
         height: ScreenH*0.1

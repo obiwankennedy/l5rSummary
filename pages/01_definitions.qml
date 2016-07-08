@@ -35,15 +35,17 @@ Rectangle {
         horizontalAlignment: Text.AlignHCenter
         font.pixelSize: ScreenH/20
     }
-    focus: true
+    focus: idState < 6 ? true : false
     Keys.onPressed: {
         if( event.key === Qt.Key_PageUp )
         {
-            decrementCurrentIndex()
+            --idState
+            event.accepted = true;
         }
         else if ( event.key === Qt.Key_PageDown )
         {
-            incrementCurrentIndex()
+            ++idState
+            event.accepted = true;
         }
     }
 

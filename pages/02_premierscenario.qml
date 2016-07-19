@@ -15,7 +15,7 @@ Rectangle {
         anchors.top: parent.top
         anchors.leftMargin: ScreenW*0.04
         fillMode: Image.PreserveAspectFit
-        source: "qrc:/images/Rolisteam.svg"
+        source: "qrc:/images/l5r-logo-2015.png"
         width: ScreenW*0.2
     }
 
@@ -35,23 +35,89 @@ Rectangle {
         horizontalAlignment: Text.AlignHCenter
         font.pixelSize: ScreenH/20
     }
-    focus: true
-    Keys.onUpPressed: {
-        --idState;
-    }
-    Keys.onDownPressed: {
-        ++idState
+    focus: idState < 4 ? true : false
+    Keys.onPressed: {
+        if( event.key === Qt.Key_PageUp )
+        {
+            --idState
+            event.accepted = true;
+        }
+        else if ( event.key === Qt.Key_PageDown )
+        {
+            ++idState
+            event.accepted = true;
+        }
     }
     onIdStateChanged: {
         trigger.start()
     }
-
+    Component {
+        id: displayItem
+        Item {
+            x: 0
+            width: 180
+            height: 180
+            Image {
+                id: img
+                anchors.top : parent.top
+                width: parent.width
+                height: 160
+                source: image
+                fillMode: Image.PreserveAspectFit
+            }
+            Text {
+                anchors.top :img.bottom
+                anchors.topMargin: img.sourceSize.height > img.sourceSize.width ? img.paintedHeight-img.height : (img.paintedHeight-img.height)/2
+                text: name
+                width: parent.width
+                font.bold: true
+                color: "#000"
+                font.pixelSize: 20
+                horizontalAlignment: Text.AlignHCenter
+            }
+        }
+    }
+    ListModel {
+        id: myModel
+        ListElement {
+            name: "Doji Taehime"
+            image: "qrc:/images/doji_taehime.jpg"
+        }
+        ListElement {
+            name: "Hida Shigehiro"
+            image: "qrc:/images/hida.jpg"
+        }
+        ListElement {
+            name: "Shinjo Zhia"
+            image: "qrc:/images/Zhia.jpg"
+        }
+        ListElement {
+            name: "Yogo Unmei"
+            image: "qrc:/images/YogoUnmei.png"
+        }
+        ListElement {
+            name: "Isawa Haneki"
+            image: "qrc:/images/Haneki.jpg"
+        }
+    }
+    ListView {
+        id: characterList
+        width: 220
+        height: parent.width
+        anchors.top: parent.top
+        anchors.bottom: parent.bottom
+        anchors.right: parent.right
+        model: myModel
+        delegate: displayItem
+        spacing: 1
+        opacity:1
+    }
     Timer {
-         id: trigger
-         interval: 1001
-         repeat: false
-         onTriggered: app.currentItemChanged(view.currentItem)
-     }
+        id: trigger
+        interval: 1001
+        repeat: false
+        onTriggered: app.currentItemChanged(view.currentItem)
+    }
     ListView {
         id: listView1
         x: ScreenW/4
@@ -61,19 +127,19 @@ Rectangle {
         delegate: Item {
             width: ScreenW/2
             height: listView1.height/listView1.count
-                Text {
-                    color: "black"
-                    text: name
-                    font.pointSize: ScreenH/28
-                    anchors.verticalCenter: parent.verticalCenter
-                    font.bold: true
+            Text {
+                color: "black"
+                text: name
+                font.pointSize: ScreenH/28
+                anchors.verticalCenter: parent.verticalCenter
+                font.bold: true
+            }
+            opacity: (jdr.idState >= index ) ? 1.0: 0.0
+            Behavior on opacity {
+                NumberAnimation {
+                    duration: 1000
                 }
-                opacity: (jdr.idState >= index ) ? 1.0: 0.0
-                Behavior on opacity {
-                    NumberAnimation {
-                        duration: 1000
-                    }
-                }
+            }
         }
 
         model: ListModel {

@@ -15,7 +15,7 @@ Rectangle {
         anchors.top: parent.top
         anchors.leftMargin: ScreenW*0.04
         fillMode: Image.PreserveAspectFit
-        source: "qrc:/images/Rolisteam.svg"
+        source: "qrc:/images/l5r-logo-2015.png"
         width: ScreenW*0.2
     }
 
@@ -35,12 +35,18 @@ Rectangle {
         horizontalAlignment: Text.AlignHCenter
         font.pixelSize: ScreenH/20
     }
-    focus: true
-    Keys.onUpPressed: {
-        --idState;
-    }
-    Keys.onDownPressed: {
-        ++idState
+    focus: idState < 3 ? true : false
+    Keys.onPressed: {
+        if( event.key === Qt.Key_PageUp )
+        {
+            --idState
+            event.accepted = true;
+        }
+        else if ( event.key === Qt.Key_PageDown )
+        {
+            ++idState
+            event.accepted = true;
+        }
     }
     onIdStateChanged: {
         trigger.start()

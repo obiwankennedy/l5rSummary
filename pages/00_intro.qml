@@ -9,16 +9,22 @@ Rectangle {
     //  anchors.centerIn: parent
     border.width: 0
     color: "#E3E3E3"
-
-  /*  Image {
+    Image {
+        id: image3
+        anchors.fill: parent
+        fillMode: Image.PreserveAspectCrop
+        source: "qrc:/images/Second_City_2.jpg"
+        opacity: 0.2
+    }
+    Image {
         id: image1
         width: ScreenW*0.75
         height: ScreenH*0.75
         fillMode: Image.PreserveAspectFit
         anchors.top: parent.top
         anchors.horizontalCenter: parent.horizontalCenter
-        source: "qrc:/rsrc/Rolisteam.svg"
-    }*/
+        source: "qrc:/images/l5r-logo-2015.png"
+    }
 
     Text {
         id: text1
@@ -45,7 +51,7 @@ Rectangle {
 
     Image {
         id: image2
-        anchors.top: parent.top
+        anchors.bottom: parent.bottom
        // anchors.topMargin: ScreenH*0.1
         anchors.left: parent.left
         anchors.leftMargin: ScreenW*0.01

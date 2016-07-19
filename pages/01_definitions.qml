@@ -15,9 +15,11 @@ Rectangle {
         anchors.top: parent.top
         anchors.leftMargin: ScreenW*0.04
         fillMode: Image.PreserveAspectFit
-        source: "qrc:/images/Rolisteam.svg"
+        source: "qrc:/images/l5r-logo-2015.png"
         width: ScreenW*0.2
     }
+
+
 
     Text {
         id: text1
@@ -35,7 +37,7 @@ Rectangle {
         horizontalAlignment: Text.AlignHCenter
         font.pixelSize: ScreenH/20
     }
-    focus: idState < 6 ? true : false
+    focus: idState < 7 ? true : false
     Keys.onPressed: {
         if( event.key === Qt.Key_PageUp )
         {
@@ -48,6 +50,7 @@ Rectangle {
             event.accepted = true;
         }
     }
+
 
     Timer {
          id: trigger
@@ -78,7 +81,11 @@ Rectangle {
                     }
                 }
         }
-
+        Behavior on opacity {
+            NumberAnimation {
+                duration: 1000
+            }
+        }
         model: ListModel {
             ListElement {
                 name: "Contexte vidéo"
@@ -90,19 +97,58 @@ Rectangle {
             }
             ListElement {
                 name: "L5R"
-                index:2
-            }
-            ListElement {
-                name: "Les clans"
                 index:3
             }
             ListElement {
+                name: "Les clans"
+                index:5
+            }
+            ListElement {
                 name: "Timeline"
-                index:4
+                index:6
             }
             ListElement {
                 name: "Chiffres"
-                index:5
+                index:7
+            }
+        }
+    }
+    onIdStateChanged: {
+        if(idState == 2)
+        {
+            image2.source = "qrc:/images/Rolisteam.svg"
+            image2.opacity =1.0
+            listView1.opacity = 0.0
+        }
+        else if(idState == 4)
+        {
+            image2.source = "qrc:/images/Rokugan_4th_Edition.jpg"
+            image2.opacity =1.0
+            listView1.opacity = 0.0
+        }
+        else{
+            image2.opacity =0.0
+            listView1.opacity = 1.0
+
+        }
+
+        /*if(idstate == 4)
+        {
+            image2.source = "qrc:/images/Rokugan_4th_Edition.jpg"
+        }*/
+    }
+
+    Image {
+        id: image2
+        x: ScreenW*0.2
+        y: ScreenH*0.2
+        width: ScreenW*0.8
+        height: ScreenH*0.8
+        fillMode: Image.PreserveAspectFit
+        opacity: 0.0
+        Behavior on opacity {
+            NumberAnimation {
+                duration: 1000
             }
         }
     }

@@ -3,8 +3,8 @@ import QtQuick.Window 2.2
 
 Rectangle {
     id: jdr
-    width: ScreenW
-    height: ScreenH
+    width: Screen.width
+    height: Screen.height
     border.color: "#E3E3E3"
     border.width: 5
     color: "#E3E3E3"
@@ -13,10 +13,10 @@ Rectangle {
         id: image1
         anchors.left: parent.left
         anchors.top: parent.top
-        anchors.leftMargin: ScreenW*0.04
+        anchors.leftMargin: Screen.width*0.04
         fillMode: Image.PreserveAspectFit
         source: "qrc:/images/l5r-logo-2015.png"
-        width: ScreenW*0.2
+        width: Screen.width*0.2
     }
 
     Text {
@@ -24,8 +24,8 @@ Rectangle {
         anchors.top:image1.top
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.bottom: image1.bottom
-        width: ScreenW*0.5
-        height: ScreenH*0.01
+        width: Screen.width*0.5
+        height: Screen.height*0.01
         color: "black"
         text: qsTr("Premier Scénario")
         anchors.horizontalCenterOffset: 1
@@ -33,35 +33,28 @@ Rectangle {
         font.bold: true
         verticalAlignment: Text.AlignVCenter
         horizontalAlignment: Text.AlignHCenter
-        font.pixelSize: ScreenH/20
+        font.pixelSize: Screen.height/20
     }
-    focus: idState < 4 ? true : false
-    Keys.onPressed: {
-        if( event.key === Qt.Key_PageUp )
-        {
+    focus: true
+    Keys.onUpPressed: {
             --idState
-            event.accepted = true;
-        }
-        else if ( event.key === Qt.Key_PageDown )
-        {
+
+    }
+    Keys.onDownPressed: {
             ++idState
-            event.accepted = true;
-        }
     }
-    onIdStateChanged: {
-        trigger.start()
-    }
+
     Component {
         id: displayItem
         Item {
             x: 0
-            width: 180
-            height: 180
+            width: parent.width
+            height: characterList.height/myModel.count
             Image {
                 id: img
                 anchors.top : parent.top
                 width: parent.width
-                height: 160
+                height: characterList.height/myModel.count-20
                 source: image
                 fillMode: Image.PreserveAspectFit
             }
@@ -102,15 +95,14 @@ Rectangle {
     }
     ListView {
         id: characterList
-        width: 220
-        height: parent.width
+        width: parent.width*0.2
+        height: parent.height
         anchors.top: parent.top
+        anchors.topMargin: parent.height*0.1
         anchors.bottom: parent.bottom
         anchors.right: parent.right
         model: myModel
         delegate: displayItem
-        spacing: 1
-        opacity:1
     }
     Timer {
         id: trigger
@@ -120,17 +112,17 @@ Rectangle {
     }
     ListView {
         id: listView1
-        x: ScreenW/4
-        y: ScreenH/4
-        width: ScreenW/2
-        height: ScreenH/2
+        x: Screen.width/4
+        y: Screen.height/4
+        width: Screen.width/2
+        height: Screen.height/2
         delegate: Item {
-            width: ScreenW/2
+            width: Screen.width/2
             height: listView1.height/listView1.count
             Text {
                 color: "black"
                 text: name
-                font.pointSize: ScreenH/28
+                font.pointSize: Screen.height/28
                 anchors.verticalCenter: parent.verticalCenter
                 font.bold: true
             }
@@ -157,7 +149,47 @@ Rectangle {
             }
             ListElement {
                 name: "Miya Akamu"
-                index:3
+                index:4
+            }
+        }
+    }
+    onIdStateChanged: {
+        if(idState == 3)
+        {
+            image2.source = "qrc:/images/Battle_of_the_Burning_Wall.jpg"
+            image2.opacity =1.0
+            listView1.opacity = 0.0
+        }
+        else if(idState == 5)
+        {
+            image2.source = "qrc:/images/ikoma_akamu.jpg"
+            image2.opacity =1.0
+            listView1.opacity = 0.0
+        }
+        else{
+            image2.opacity =0.0
+            listView1.opacity = 1.0
+
+        }
+         trigger.start()
+
+        /*if(idstate == 4)
+        {
+            image2.source = "qrc:/images/Rokugan_4th_Edition.jpg"
+        }*/
+    }
+
+    Image {
+        id: image2
+        x: Screen.width*0.1
+        y: Screen.height*0.2
+        width: Screen.width*0.8
+        height: Screen.height*0.8
+        fillMode: Image.PreserveAspectFit
+        opacity: 0.0
+        Behavior on opacity {
+            NumberAnimation {
+                duration: 1000
             }
         }
     }

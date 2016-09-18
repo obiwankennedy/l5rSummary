@@ -3,8 +3,8 @@ import QtQuick.Window 2.2
 
 Rectangle {
     id: jdr
-    width: ScreenW
-    height: ScreenH
+    width: Screen.width
+    height: Screen.height
     border.color: "#E3E3E3"
     border.width: 5
     color: "#E3E3E3"
@@ -13,10 +13,10 @@ Rectangle {
         id: image1
         anchors.left: parent.left
         anchors.top: parent.top
-        anchors.leftMargin: ScreenW*0.04
+        anchors.leftMargin: Screen.width*0.04
         fillMode: Image.PreserveAspectFit
         source: "qrc:/images/l5r-logo-2015.png"
-        width: ScreenW*0.2
+        width: Screen.width*0.2
     }
 
     Text {
@@ -24,29 +24,24 @@ Rectangle {
         anchors.top:image1.top
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.bottom: image1.bottom
-        width: ScreenW*0.5
-        height: ScreenH*0.01
+        width: Screen.width*0.5
+        height: Screen.height*0.01
         color: "black"
-        text: qsTr("Premier Scénario")
+        text: qsTr("Sur le trajet")
         anchors.horizontalCenterOffset: 1
         font.family: "Verdana"
         font.bold: true
         verticalAlignment: Text.AlignVCenter
         horizontalAlignment: Text.AlignHCenter
-        font.pixelSize: ScreenH/20
+        font.pixelSize: Screen.height/20
     }
-    focus: idState < 7 ? true : false
-    Keys.onPressed: {
-        if( event.key === Qt.Key_PageUp )
-        {
+    focus: true
+    Keys.onUpPressed: {
             --idState
-            event.accepted = true;
-        }
-        else if ( event.key === Qt.Key_PageDown )
-        {
+
+    }
+    Keys.onDownPressed: {
             ++idState
-            event.accepted = true;
-        }
     }
     onIdStateChanged: {
         trigger.start()
@@ -60,17 +55,17 @@ Rectangle {
      }
     ListView {
         id: listView1
-        x: ScreenW/4
-        y: ScreenH/4
-        width: ScreenW/2
-        height: ScreenH/2
+        x: Screen.width/4
+        y: Screen.height/4
+        width: Screen.width/2
+        height: Screen.height/2
         delegate: Item {
-            width: ScreenW/2
+            width: Screen.width/2
             height: listView1.height/listView1.count
                 Text {
                     color: "black"
                     text: name
-                    font.pointSize: ScreenH/28
+                    font.pointSize: Screen.height/28
                     anchors.verticalCenter: parent.verticalCenter
                     font.bold: true
                 }
@@ -96,21 +91,74 @@ Rectangle {
                 index:2
             }
             ListElement {
-                name: "Hida Shigehiro"
+                name: "Sosuke"
                 index:3
             }
             ListElement {
-                name: "Akodo Eiichi & Bayushi Takayoshi"
+                name: "Hida Shigehiro"
                 index:4
             }
             ListElement {
-                name: "Sosuke"
+                name: "Akodo Eiichi & Bayushi Takayoshi"
                 index:5
             }
-            ListElement {
-                name: "Mort du méchant"
-                index:6
+        }
+    }
+    Component {
+        id: displayItem
+        Item {
+            x: 0
+            width: parent.width
+            height: characterList.height/myModel.count
+            Image {
+                id: img
+                anchors.top : parent.top
+                width: parent.width
+                height: characterList.height/myModel.count-20
+                source: image
+                fillMode: Image.PreserveAspectFit
+            }
+            Text {
+                anchors.top :img.bottom
+                anchors.topMargin: img.sourceSize.height > img.sourceSize.width ? img.paintedHeight-img.height : (img.paintedHeight-img.height)/2
+                text: name
+                width: parent.width
+                font.bold: true
+                color: "#000"
+                font.pixelSize: 20
+                horizontalAlignment: Text.AlignHCenter
             }
         }
+    }
+
+    ListModel {
+        id: myModel
+        ListElement {
+            name: "Shinjo Zhia"
+            image: "qrc:/images/Zhia.jpg"
+        }
+        ListElement {
+            name: "Tsuruchi Nayu"
+            image: "qrc:/images/tsuruchi.jpg"
+        }
+        ListElement {
+            name: "Bayushi Takayoshi"
+            image: "qrc:/images/Bayushi_Takayoshi.png"
+        }
+        ListElement {
+            name: "Akodo Eiichi"
+            image: "qrc:/images/Akodo_Eiichi.jpg"
+        }
+    }
+    ListView {
+        id: characterList
+        width: parent.width*0.2
+        height: parent.height
+        anchors.top: parent.top
+        anchors.topMargin: parent.height*0.1
+        anchors.bottom: parent.bottom
+        anchors.right: parent.right
+        model: myModel
+        delegate: displayItem
     }
 }

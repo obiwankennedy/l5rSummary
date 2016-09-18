@@ -16,11 +16,11 @@ int main(int argc, char *argv[])
     int height = rec.height();
     int width = rec.width();
 
-    engine.rootContext()->setContextProperty("ScreenW",width);
-    engine.rootContext()->setContextProperty("ScreenH",height);
+    engine.rootContext()->setContextProperty("Screen.width",width);
+    engine.rootContext()->setContextProperty("Screen.height",height);
 
-    engine.rootContext()->setContextProperty("ScreenW",1280);
-    engine.rootContext()->setContextProperty("ScreenH",720);
+    engine.rootContext()->setContextProperty("Screen.width",1280);
+    engine.rootContext()->setContextProperty("Screen.height",720);
 
 
     engine.load(QUrl(QStringLiteral("qrc:/main.qml")));

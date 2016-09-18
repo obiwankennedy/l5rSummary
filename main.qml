@@ -6,9 +6,9 @@ import QtQuick.Dialogs 1.2
 
 ApplicationWindow {
     id: app
-    //visibility: Window.FullScreen;
-    width: ScreenW
-    height: ScreenH
+    visibility: Window.FullScreen;
+    width: Screen.width
+    height: Screen.height
     visible: true
     title: qsTr("CR Campagne: Bienvenue dans les colonies!")
     signal currentItemChanged(int current)
@@ -95,15 +95,13 @@ ApplicationWindow {
             }
         }
         focus: true
-        Keys.onPressed: {
-            if( event.key === Qt.Key_PageUp )
-            {
+        Keys.onLeftPressed:
+        {
                 decrementCurrentIndex()
-            }
-            else if ( event.key === Qt.Key_PageDown )
-            {
+        }
+        Keys.onRightPressed:
+        {
                 incrementCurrentIndex()
-            }
         }
         Keys.onEscapePressed: {
             if(app.visibility === Window.FullScreen)
@@ -124,40 +122,35 @@ ApplicationWindow {
     }
     ListView {
         id: listView1
-        x: ScreenW*0.02
-        y: ScreenH*0.3
-        width: ScreenW/2
-        height: ScreenH*0.2
+        x: Screen.width*0.02
+        y: Screen.height*0.3
+        width: Screen.width/2
+        height: Screen.height*0.2
         delegate: Item {
-            width: ScreenW/2
+            width: Screen.width/2
             height: listView1.height/listView1.count
                 Text {
                     color: view.currentIndex>=index ? "black" : "gray"
                     text: name
-                    font.pointSize: ScreenH/48
+                    font.pointSize: Screen.height/48
                     anchors.verticalCenter: parent.verticalCenter
                     font.bold: true
-
                 }
         }
         visible: true//view.currentIndex>0 ? true : false
 
         model: ListModel {
             ListElement {
-                name: "Concepts"
+                name: "Introduction"
                 index:1
             }
             ListElement {
-                name: "Chroniques"
-                index:6
+                name: "Campagne Officielle"
+                index:3
             }
             ListElement {
-                name: "Logiciel"//système de build, code spécifique par OS.
-                index:9
-            }
-            ListElement {
-                name: "Bilan"
-                index:15
+                name: "Campagne maison"//système de build, code spécifique par OS.
+                index:5
             }
         }
     }
@@ -174,94 +167,6 @@ ApplicationWindow {
         anchors.top: parent.top
         anchors.right: parent.right
         text: panelModel.get(view.currentIndex).next+">"
+        visible: panelModel.get(view.currentIndex).next !== "" ? true : false
     }
 }
-/*
-        ListModel {
-                    id: myModel
-                    ListElement {
-                        name: "Doji Taehime"
-                        image: "images/doji_taehime.jpg"
-                        begin: 1
-                        end: 2
-                    }
-                    ListElement {
-                        name: "Mirumoto Sastume"
-                        image: "images/Mirumoto.jpg"
-                        begin: 3
-                        end: 3
-                    }
-                    ListElement {
-                        name: "Hida Shigehiro"
-                        image: "images/hida.jpg"
-                        begin: 1
-                        end: 3
-                    }
-                    ListElement {
-                        name: "Bayushi Takayoshi"
-                        image: "images/Bayushi_Takayoshi.png"
-                        begin: 4
-                        end: 10
-                    }
-                    ListElement {
-                        name: "Tsuruchi Nayu"
-                        image: "images/tsuruchi.jpg"
-                        begin: 4
-                        end: 6
-                    }
-                    ListElement {
-                        name: "Shinjo Zhia"
-                        image: "images/Zhia.jpg"
-                        begin: 1
-                        end:10
-                    }
-                    ListElement {
-                        name: "Yogo Unmei"
-                        image: "images/YogoUnmei.png"
-                        begin: 1
-                        end:2
-                    }
-                    ListElement {
-                        name: "Isawa Haneki"
-                        image: "images/Haneki.jpg"
-                        begin: 1
-                        end:2
-                    }
-                    ListElement {
-                        name: "Akodo Eiichi"
-                        image: "images/Akodo_Eiichi.jpg"
-                        begin: 4
-                        end: 10
-                    }
-                }
-
-            DelegateModel {
-                id: firstModel
-                delegate: displayItem
-                model: myModel
-                property int stateId: form.stateId
-                groups: [
-                    DelegateModelGroup {
-                        includeByDefault: false
-                        name: "shown"
-                    }
-                ]
-                filterOnGroup: "shown"
-                onStateIdChanged: {
-                    var countValue = items.count
-                    var rowCount = myModel.count;
-                    items.removeGroups(0,countValue,"shown");
-                    items.remove(0,countValue)
-                    for( var i = 0;i < rowCount;i++ )
-                    {
-                        var entry = myModel.get(i);
-                        if((entry.begin <= stateId) && (entry.end >= stateId))
-                        {
-                            items.insert(entry, "shown");
-                        }
-                    }
-                }
-    }
-  }
-}
-*/

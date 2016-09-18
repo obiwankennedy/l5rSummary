@@ -119,11 +119,11 @@ void QmlControler::initConnection()
 }
 void QmlControler::currentPageHasChanged(int i)
 {
-    m_currentScreen = i;
+  /*  m_currentScreen = i;
     QImage img = m_window->grabWindow();
 
     if(img.isNull())
-        return;
+        return;*/
 
     static int count = 0;
 

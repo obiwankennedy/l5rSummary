@@ -3,8 +3,8 @@ import QtQuick.Window 2.2
 
 Rectangle {
     id: rectangle1
-    width: ScreenW //
-    height: ScreenH //ScreenH
+    width: Screen.width //
+    height: Screen.height //Screen.height
     //  height: 600
     //  anchors.centerIn: parent
     border.width: 0
@@ -18,8 +18,8 @@ Rectangle {
     }
     Image {
         id: image1
-        width: ScreenW*0.75
-        height: ScreenH*0.75
+        width: Screen.width*0.75
+        height: Screen.height*0.75
         fillMode: Image.PreserveAspectFit
         anchors.top: parent.top
         anchors.horizontalCenter: parent.horizontalCenter
@@ -30,15 +30,15 @@ Rectangle {
         id: text1
         anchors.top:parent.top
         anchors.horizontalCenter: parent.horizontalCenter
-        width: ScreenW*0.5
-        height: ScreenH*0.1
+        width: Screen.width*0.5
+        height: Screen.height*0.1
         color: "black"
         text: qsTr("Compte-Rendu de Campagne")
         font.family: "Verdana"
         font.bold: true
         verticalAlignment: Text.AlignVCenter
         horizontalAlignment: Text.AlignHCenter
-        font.pixelSize: ScreenH/20
+        font.pixelSize: Screen.height/20
     }
 
     Text {
@@ -46,17 +46,17 @@ Rectangle {
         anchors.bottom: parent.bottom
         anchors.right: parent.right
         text: qsTr("ObiWanKennedy")
-        font.pixelSize: ScreenH/25
+        font.pixelSize: Screen.height/25
     }
 
     Image {
         id: image2
         anchors.bottom: parent.bottom
-       // anchors.topMargin: ScreenH*0.1
+       // anchors.topMargin: Screen.height*0.1
         anchors.left: parent.left
-        anchors.leftMargin: ScreenW*0.01
-        width: ScreenW*0.1
-        height: ScreenH*0.1
+        anchors.leftMargin: Screen.width*0.01
+        width: Screen.width*0.1
+        height: Screen.height*0.1
         fillMode: Image.PreserveAspectFit
         source: "qrc:/images/cc.png"
     }

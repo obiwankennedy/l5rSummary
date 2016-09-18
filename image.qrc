@@ -16,5 +16,27 @@
         <file>images/OtomoAkio.png</file>
         <file>images/cc.png</file>
         <file>images/Rolisteam.svg</file>
+        <file>images/ikoma_akamu.jpg</file>
+        <file>images/Fourth_Edition_Core_Book.jpg</file>
+        <file>images/secondcityBox.png</file>
+        <file>images/thehouse_0.jpg</file>
+        <file>images/crabgroup.png</file>
+        <file>images/dragongroup.png</file>
+        <file>images/gruegroup.png</file>
+        <file>images/liongroup.png</file>
+        <file>images/mantisgroup.png</file>
+        <file>images/phenixgroup.png</file>
+        <file>images/scorpiongroup.png</file>
+        <file>images/spidergroup.png</file>
+        <file>images/unicorngroup.png</file>
+        <file>images/crab_map.jpg</file>
+        <file>images/crane_map.jpg</file>
+        <file>images/dragon_map.jpg</file>
+        <file>images/mantis_map.jpg</file>
+        <file>images/phenix_map.jpg</file>
+        <file>images/scorpion_map.jpg</file>
+        <file>images/lion_map.jpg</file>
+        <file>images/unicorn_map.jpg</file>
+        <file>images/spider_map.jpg</file>
     </qresource>
 </RCC>

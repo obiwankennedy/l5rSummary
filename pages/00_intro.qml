@@ -1,21 +1,18 @@
 import QtQuick 2.0
 import QtQuick.Window 2.2
 
-Rectangle {
+Item {
     id: rectangle1
     width: Screen.width //
     height: Screen.height //Screen.height
-    //  height: 600
-    //  anchors.centerIn: parent
-    border.width: 0
-    color: "#E3E3E3"
-    Image {
+
+ /*   Image {
         id: image3
         anchors.fill: parent
         fillMode: Image.PreserveAspectCrop
         source: "qrc:/images/Second_City_2.jpg"
-        opacity: 0.2
-    }
+    }*/
+
     Image {
         id: image1
         width: Screen.width*0.75
@@ -23,6 +20,7 @@ Rectangle {
         fillMode: Image.PreserveAspectFit
         anchors.top: parent.top
         anchors.horizontalCenter: parent.horizontalCenter
+        anchors.horizontalCenterOffset: Screen.width*0.1
         source: "qrc:/images/l5r-logo-2015.png"
     }
 

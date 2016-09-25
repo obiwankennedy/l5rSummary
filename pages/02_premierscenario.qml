@@ -1,14 +1,13 @@
 import QtQuick 2.0
 import QtQuick.Window 2.2
 
-Rectangle {
+Item {
     id: jdr
     width: Screen.width
     height: Screen.height
-    border.color: "#E3E3E3"
-    border.width: 5
-    color: "#E3E3E3"
+
     property int idState: 0
+
     Image {
         id: image1
         anchors.left: parent.left

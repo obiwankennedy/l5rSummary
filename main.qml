@@ -3,6 +3,9 @@ import QtQuick.Window 2.2
 import QtQml.Models 2.2
 import QtQuick.Controls 1.4
 import QtQuick.Dialogs 1.2
+import Qt.labs.presentation 1.0
+import QtGraphicalEffects 1.0
+
 
 ApplicationWindow {
     id: app
@@ -13,7 +16,89 @@ ApplicationWindow {
     title: qsTr("CR Campagne: Bienvenue dans les colonies!")
     signal currentItemChanged(int current)
 
+    property alias current: view.currentIndex
+    property alias offset: view.offset
+    Image {
+        id: bgimg1
+        anchors.fill: parent
+        fillMode: Image.PreserveAspectCrop
+        source: "qrc:/images/fond/imageL5r-003.tif.png"
+    }
 
+    onCurrentChanged: {
+        topcornerimage.visible = false
+        bottomcornerimage.visible = false
+        if(current==0)
+            bgimg.source = "qrc:/images/Second_City_2.jpg"
+        else if(current % 3 == 0)
+        {
+            bgimg.source = "qrc:/images/fond/imageL5r-003.tif.png";
+            bottomcornerimage.visible = true
+        }
+        else if(current % 3 == 1)
+        {
+            bgimg.source = "qrc:/images/fond/imageL5r-017.tif.png";
+        }
+        else if(current % 3 == 2)
+        {
+            bgimg.source = "qrc:/images/fond/imageL5r-631.tif.png";
+            topcornerimage.visible = true
+        }
+
+
+    }
+
+
+
+    onOffsetChanged: {
+        if(Math.floor(offset)===offset)
+        {
+             appear.start()
+        }
+    }
+
+    NumberAnimation {
+        id: appear
+        duration: 1000
+        property: "opacity"
+        from: 0
+        to: 1
+        target: bgimg
+        easing.type: Easing.InOutQuad
+    }
+    Image {
+        id: bgimg
+        anchors.fill: parent
+        fillMode: Image.PreserveAspectCrop
+        source: "qrc:/images/Second_City_2.jpg"
+        verticalAlignment: Image.AlignBottom
+    }
+    FastBlur {
+        anchors.fill: bgimg
+        source: bgimg
+        radius: current===0?32:0
+        opacity: bgimg.opacity
+    }
+    Image {
+        id: topcornerimage
+        anchors.top: parent.top
+        anchors.right: parent.right
+        verticalAlignment: Image.AlignTop
+        horizontalAlignment: Image.AlignRight
+        source: "qrc:/images/fond/imageL5r-364.tif.png";
+        opacity: bgimg.opacity
+        visible: false
+    }
+    Image {
+        id: bottomcornerimage
+        anchors.bottom: parent.bottom
+        anchors.left: parent.left
+        verticalAlignment: Image.AlignBottom
+        horizontalAlignment: Image.AlignLeft
+        source: "qrc:/images/fond/imageL5r-398.tif.png";
+        opacity: bgimg.opacity
+        visible: false
+    }
     ListModel {
             id: panelModel
             ListElement {
@@ -62,11 +147,7 @@ ApplicationWindow {
         }
     //Component.onCompleted: app.currentItemChanged(0)
     onVisibleChanged: trigger.start()
-    Rectangle {
-        id: rect
-        anchors.fill: parent
-        color: "#E3E3E3"
-    }
+
 
     PathView {
         id: view
@@ -97,11 +178,15 @@ ApplicationWindow {
         focus: true
         Keys.onLeftPressed:
         {
+                bgimg.opacity = 0;
                 decrementCurrentIndex()
+              //  bgimg.opacity = 1;
         }
         Keys.onRightPressed:
         {
+                bgimg.opacity = 0;
                 incrementCurrentIndex()
+              //  bgimg.opacity = 1;
         }
         Keys.onEscapePressed: {
             if(app.visibility === Window.FullScreen)
@@ -132,7 +217,7 @@ ApplicationWindow {
                 Text {
                     color: view.currentIndex>=index ? "black" : "gray"
                     text: name
-                    font.pointSize: Screen.height/48
+                    font.pointSize: Screen.height/50
                     anchors.verticalCenter: parent.verticalCenter
                     font.bold: true
                 }

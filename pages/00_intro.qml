@@ -6,13 +6,6 @@ Item {
     width: Screen.width //
     height: Screen.height //Screen.height
 
- /*   Image {
-        id: image3
-        anchors.fill: parent
-        fillMode: Image.PreserveAspectCrop
-        source: "qrc:/images/Second_City_2.jpg"
-    }*/
-
     Image {
         id: image1
         width: Screen.width*0.75
@@ -32,11 +25,12 @@ Item {
         height: Screen.height*0.1
         color: "black"
         text: qsTr("Compte-Rendu de Campagne")
-        font.family: "Verdana"
+        font.family: title.name
         font.bold: true
         verticalAlignment: Text.AlignVCenter
         horizontalAlignment: Text.AlignHCenter
-        font.pixelSize: Screen.height/20
+        font.pixelSize: Screen.height/15
+
     }
 
     Text {
@@ -44,7 +38,8 @@ Item {
         anchors.bottom: parent.bottom
         anchors.right: parent.right
         text: qsTr("ObiWanKennedy")
-        font.pixelSize: Screen.height/25
+        font.pixelSize: Screen.height/20
+        font.family: title.name
     }
 
     Image {

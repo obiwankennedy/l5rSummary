@@ -19,3 +19,6 @@ HEADERS += \
 
 FORMS += \
     qmlcontroler.ui
+
+
+OTHER_FILES += *.qml pages/*.qml pages2/*.qml

@@ -29,11 +29,12 @@ Item {
         color: "black"
         text: qsTr("Sur le trajet")
         anchors.horizontalCenterOffset: 1
-        font.family: "Verdana"
+        font.family: title.name
         font.bold: true
         verticalAlignment: Text.AlignVCenter
         horizontalAlignment: Text.AlignHCenter
-        font.pixelSize: Screen.height/20
+        font.pixelSize: Screen.height/15
+
     }
     focus: true
     Keys.onUpPressed: {
@@ -44,6 +45,20 @@ Item {
             ++idState
     }
     onIdStateChanged: {
+
+        if(idState == 8)
+        {
+            image2.source = "qrc:/images/Kitsune_HidekoFull.jpg"
+            image2.opacity =1.0
+            listView1.opacity = 0.0
+            characterList.opacity = 0.0
+        }
+        else{
+            image2.opacity =0.0
+            listView1.opacity = 1.0
+            characterList.opacity = 1.0
+        }
+
         trigger.start()
     }
 
@@ -65,9 +80,12 @@ Item {
                 Text {
                     color: "black"
                     text: name
-                    font.pointSize: Screen.height/28
+                    font.pointSize: Screen.height/25
                     anchors.verticalCenter: parent.verticalCenter
                     font.bold: true
+                    font.family: localFont.name
+
+
                 }
                 opacity: (jdr.idState >= index ) ? 1.0: 0.0
                 Behavior on opacity {
@@ -79,28 +97,36 @@ Item {
 
         model: ListModel {
             ListElement {
-                name: "Otomo Akio"
+                name: "Mirumoto Sastume"
                 index:0
             }
             ListElement {
-                name: "Ide Sadeo"
+                name: "Tsuruchi Nayu"
                 index:1
             }
             ListElement {
-                name: "Kitsune Hideko"
+                name: "Hida Shigehiro"
                 index:2
             }
             ListElement {
-                name: "Sosuke"
+                name: "Akodo Eiichi & Bayushi Takayoshi"
                 index:3
             }
             ListElement {
-                name: "Hida Shigehiro"
+                name: "Otomo Akio"
                 index:4
             }
             ListElement {
-                name: "Akodo Eiichi & Bayushi Takayoshi"
+                name: "Ide Sadeo"
                 index:5
+            }
+            ListElement {
+                name: "Sosuke"
+                index:6
+            }
+            ListElement {
+                name: "Kitsune Hideko"
+                index:7
             }
         }
     }
@@ -126,6 +152,7 @@ Item {
                 font.bold: true
                 color: "#000"
                 font.pixelSize: 20
+                font.family: title.name
                 horizontalAlignment: Text.AlignHCenter
             }
         }
@@ -160,5 +187,20 @@ Item {
         anchors.right: parent.right
         model: myModel
         delegate: displayItem
+    }
+
+    Image {
+        id: image2
+        x: Screen.width*0.2
+        y: Screen.height*0.2
+        width: Screen.width*0.8
+        height: Screen.height*0.8
+        fillMode: Image.PreserveAspectFit
+        opacity: 0.0
+        Behavior on opacity {
+            NumberAnimation {
+                duration: 1000
+            }
+        }
     }
 }

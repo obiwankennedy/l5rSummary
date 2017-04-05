@@ -18,6 +18,10 @@ ApplicationWindow {
 
     property alias current: view.currentIndex
     property alias offset: view.offset
+
+    FontLoader { id: title; source: "qrc:/fonts/Present-lt-black-condensed.ttf" }
+    FontLoader { id: localFont; source: "qrc:/fonts/KUDASAI_.TTF" }
+
     Image {
         id: bgimg1
         anchors.fill: parent
@@ -62,7 +66,7 @@ ApplicationWindow {
         duration: 1000
         property: "opacity"
         from: 0
-        to: 1
+        to: 0.3
         target: bgimg
         easing.type: Easing.InOutQuad
     }
@@ -145,19 +149,80 @@ ApplicationWindow {
                 next: ""
             }
         }
+
+    ListModel {
+            id: cmpModel
+            ListElement {
+                name: "Intro"
+                path: "000_intro.qml"
+                time: 1
+                next: "Inspiration"
+            }
+            ListElement {
+                name: "Mes inspirations"
+                path: "001_inspiration.qml"
+                time: 1
+                next: "chronologie"
+            }
+            ListElement {
+                name: "Chronologie"
+                path: "002_chronologie.qml"
+                time: 1
+                next: "Les arcs narratifs"
+            }
+            ListElement {
+                name: "Les arcs narratifs"
+                path: "002_arcs.qml"
+                time: 1
+                next: "L’indépendance"
+            }
+            ListElement {
+                name: "L’indépendance"
+                path: "003_independance.qml"
+                time: 1
+                next: "Akodo Eiichi"
+            }
+            ListElement {
+                name: "Akodo Eiichi"
+                path: "005_akodo.qml"
+                time: 1
+                next: "Bayushi Takoyashi"
+            }
+
+            ListElement {
+                name: "Bayushi Takoyashi"
+                path: "006_bayushi.qml"
+                time: 1
+                next: "Shinjo Zhia"
+            }
+            ListElement {
+                name: "Shinjo Zhia"
+                path: "007_shinjo.qml"
+                time: 1
+                next: "Tsuruchi Nayu"
+            }
+            ListElement {
+                name: "Tsuruchi Nayu"
+                path: "008_tsuruchi.qml"
+                time: 1
+                next: ""
+            }
+        }
     //Component.onCompleted: app.currentItemChanged(0)
     onVisibleChanged: trigger.start()
 
+    //property string page: "pages"
+    property string page: "pages2"
 
     PathView {
         id: view
         anchors.fill: parent
-        model: panelModel
+        model: cmpModel
         highlightRangeMode:PathView.StrictlyEnforceRange
         snapMode: PathView.SnapOneItem
         delegate:  Loader {
             //property variant model: model
-             source: "pages/"+path
+             source: page+"/"+path
 
         }
 
@@ -202,7 +267,7 @@ ApplicationWindow {
         path: Path {
             startX: view.width/2
             startY: view.height/2
-            PathLine { x: view.width/2+view.width*panelModel.count; y: view.height/2 }
+            PathLine { x: view.width/2+view.width*cmpModel.count; y: view.height/2 }
         }
     }
     ListView {
@@ -217,9 +282,10 @@ ApplicationWindow {
                 Text {
                     color: view.currentIndex>=index ? "black" : "gray"
                     text: name
-                    font.pointSize: Screen.height/50
+                    font.pointSize: Screen.height/40
                     anchors.verticalCenter: parent.verticalCenter
                     font.bold: true
+                    font.family: title.name
                 }
         }
         visible: true//view.currentIndex>0 ? true : false
@@ -230,12 +296,16 @@ ApplicationWindow {
                 index:1
             }
             ListElement {
-                name: "Campagne Officielle"
+                name: "Inspirations"
                 index:3
             }
             ListElement {
-                name: "Campagne maison"//système de build, code spécifique par OS.
+                name: "Les intrigues"//système de build, code spécifique par OS.
                 index:5
+            }
+            ListElement {
+                name: "Fin"//système de build, code spécifique par OS.
+                index:10
             }
         }
     }
@@ -251,7 +321,7 @@ ApplicationWindow {
     Text {
         anchors.top: parent.top
         anchors.right: parent.right
-        text: panelModel.get(view.currentIndex).next+">"
-        visible: panelModel.get(view.currentIndex).next !== "" ? true : false
+        text: cmpModel.get(view.currentIndex).next+">"
+        visible: cmpModel.get(view.currentIndex).next !== "" ? true : false
     }
 }

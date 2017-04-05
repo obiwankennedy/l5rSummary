@@ -8,5 +8,27 @@
         <file>pages/04_trajet.qml</file>
         <file>pages/05_fincampagne.qml</file>
         <file>pages/06_campagnemaison.qml</file>
+        <file>pages2/008_tsuruchi.qml</file>
+        <file>pages2/007_shinjo.qml</file>
+        <file>pages2/006_bayushi.qml</file>
+        <file>pages2/005_akodo.qml</file>
+        <file>pages2/004_independance.qml</file>
+        <file>pages2/003_arcs.qml</file>
+        <file>pages2/002_chronologie.qml</file>
+        <file>pages2/001_inspiration.qml</file>
+        <file>pages2/000_intro.qml</file>
+        <file>pages2/009_intrigues.qml</file>
+        <file>pages2/010_Lion_Perdu.qml</file>
+        <file>pages2/011_Vol_de_plante.qml</file>
+        <file>pages2/012_maho.qml</file>
+        <file>pages2/013_pirates.qml</file>
+        <file>pages2/014_yoritomo_losai.qml</file>
+        <file>pages2/015_village_misara.qml</file>
+        <file>pages2/016_guerre_mante_araignee.qml</file>
+        <file>pages2/017_traffic_de_drogues.qml</file>
+        <file>pages2/018_Asako_Yumi.qml</file>
+        <file>pages2/019_Mort_Otomo_Akio.qml</file>
+        <file>pages2/020_Mort_Daigotsu_shuuki.qml</file>
+        <file>pages2/021_Village_Okawa.qml</file>
     </qresource>
 </RCC>

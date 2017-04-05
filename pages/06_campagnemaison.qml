@@ -28,11 +28,11 @@ Item {
         color: "black"
         text: qsTr("Première Histoire")
         anchors.horizontalCenterOffset: 1
-        font.family: "Verdana"
+        font.family: title.name
         font.bold: true
         verticalAlignment: Text.AlignVCenter
         horizontalAlignment: Text.AlignHCenter
-        font.pixelSize: Screen.height/20
+        font.pixelSize: Screen.height/15
     }
     focus: true
     Keys.onUpPressed: {
@@ -64,9 +64,12 @@ Item {
                 Text {
                     color: "black"
                     text: name
-                    font.pointSize: Screen.height/28
+                    font.pointSize: Screen.height/20
                     anchors.verticalCenter: parent.verticalCenter
                     font.bold: true
+                    font.family: localFont.name
+
+
                 }
                 opacity: (jdr.idState >= index ) ? 1.0: 0.0
                 Behavior on opacity {
@@ -124,6 +127,7 @@ Item {
                 width: parent.width
                 font.bold: true
                 color: "#000"
+                font.family: title.name
                 font.pixelSize: 20
                 horizontalAlignment: Text.AlignHCenter
             }

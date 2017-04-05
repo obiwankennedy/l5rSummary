@@ -38,7 +38,6 @@
         <file>images/lion_map.jpg</file>
         <file>images/unicorn_map.jpg</file>
         <file>images/spider_map.jpg</file>
-        <file>images/particle.png</file>
         <file>images/fond/imageL5r-003.tif.png</file>
         <file>images/fond/imageL5r-017.tif.png</file>
         <file>images/fond/imageL5r-077.tif.png</file>
@@ -108,5 +107,32 @@
         <file>images/fond/imageL5r-980.tif.png</file>
         <file>images/fond/imageL5r-1019.tif.png</file>
         <file>images/fond/imageL5r-1026.tif.png</file>
+        <file>fonts/cezanne.TTF</file>
+        <file>fonts/GOUDOSI.TTF</file>
+        <file>fonts/GOUDY___.TTF</file>
+        <file>fonts/HIROSH.TTF</file>
+        <file>fonts/HIROSHBI.TTF</file>
+        <file>fonts/KendoITC.ttf</file>
+        <file>fonts/KUDASAI_.TTF</file>
+        <file>fonts/OLDSH___.TTF</file>
+        <file>fonts/OLDSIH__.TTF</file>
+        <file>fonts/OLDSSCH_.TTF</file>
+        <file>fonts/Present-lt-black-condensed.ttf</file>
+        <file>fonts/rotissansserif65-bold.ttf</file>
+        <file>fonts/rotissansseriflight45.ttf</file>
+        <file>fonts/rotissemisans55.ttf</file>
+        <file>fonts/TREEFROG.TTF</file>
+        <file>images/terresgaijin.jpg</file>
+        <file>images/Kitsune_HidekoFull.jpg</file>
+        <file>images/sources/asimovFondation.jpg</file>
+        <file>images/sources/blacksails.jpg</file>
+        <file>images/sources/blacksails02.jpg</file>
+        <file>images/sources/enferfibuste.jpg</file>
+        <file>images/sources/gagnerguerre_jp_jaworski.jpg</file>
+        <file>images/sources/lecoledumicrodargent.jpg</file>
+        <file>images/sources/marco-polo.png</file>
+        <file>images/sources/marco-polo02.jpg</file>
+        <file>images/sources/musketeers.jpg</file>
+        <file>images/sources/musketeers02.jpg</file>
     </qresource>
 </RCC>

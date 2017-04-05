@@ -28,11 +28,11 @@ Item {
         color: "black"
         text: qsTr("Fin de l'acte 1")
         anchors.horizontalCenterOffset: 1
-        font.family: "Verdana"
+        font.family: title.name
         font.bold: true
         verticalAlignment: Text.AlignVCenter
         horizontalAlignment: Text.AlignHCenter
-        font.pixelSize: Screen.height/20
+        font.pixelSize: Screen.height/15
     }
     focus: true
     Keys.onUpPressed: {
@@ -64,9 +64,12 @@ Item {
                 Text {
                     color: "black"
                     text: name
-                    font.pointSize: Screen.height/28
+                    font.pointSize: Screen.height/20
                     anchors.verticalCenter: parent.verticalCenter
                     font.bold: true
+                    font.family: localFont.name
+
+
                 }
                 opacity: (jdr.idState >= index ) ? 1.0: 0.0
                 Behavior on opacity {
@@ -110,6 +113,8 @@ Item {
                 anchors.topMargin: img.sourceSize.height > img.sourceSize.width ? img.paintedHeight-img.height : (img.paintedHeight-img.height)/2
                 text: name
                 width: parent.width
+                font.family: title.name
+
                 font.bold: true
                 color: "#000"
                 font.pixelSize: 20

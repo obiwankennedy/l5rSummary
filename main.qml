@@ -3,7 +3,7 @@ import QtQuick.Window 2.2
 import QtQml.Models 2.2
 import QtQuick.Controls 1.4
 import QtQuick.Dialogs 1.2
-import Qt.labs.presentation 1.0
+//import Qt.labs.presentation 1.0
 import QtGraphicalEffects 1.0
 
 
@@ -162,23 +162,11 @@ ApplicationWindow {
                 name: "Mes inspirations"
                 path: "001_inspiration.qml"
                 time: 1
-                next: "chronologie"
+                next: "Résumé"
             }
             ListElement {
-                name: "Chronologie"
+                name: "Résumé"
                 path: "002_chronologie.qml"
-                time: 1
-                next: "Les arcs narratifs"
-            }
-            ListElement {
-                name: "Les arcs narratifs"
-                path: "002_arcs.qml"
-                time: 1
-                next: "L’indépendance"
-            }
-            ListElement {
-                name: "L’indépendance"
-                path: "003_independance.qml"
                 time: 1
                 next: "Akodo Eiichi"
             }
@@ -205,7 +193,19 @@ ApplicationWindow {
                 name: "Tsuruchi Nayu"
                 path: "008_tsuruchi.qml"
                 time: 1
-                next: ""
+                next: "Arc Narratifs"
+            }
+            ListElement {
+                name: "Les arcs narratifs"
+                path: "003_arcs.qml"
+                time: 1
+                next: "L’indépendance"
+            }
+            ListElement {
+                name: "L’indépendance"
+                path: "004_independance.qml"
+                time: 1
+                next: "Akodo Eiichi"
             }
         }
     //Component.onCompleted: app.currentItemChanged(0)
@@ -300,8 +300,12 @@ ApplicationWindow {
                 index:3
             }
             ListElement {
+                name: "Les personnages"//système de build, code spécifique par OS.
+                index:4
+            }
+            ListElement {
                 name: "Les intrigues"//système de build, code spécifique par OS.
-                index:5
+                index:9
             }
             ListElement {
                 name: "Fin"//système de build, code spécifique par OS.

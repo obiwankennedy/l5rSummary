@@ -40,7 +40,10 @@
         <file>images/spider_map.jpg</file>
         <file>images/fond/imageL5r-003.tif.png</file>
         <file>images/fond/imageL5r-017.tif.png</file>
-        <file>images/fond/imageL5r-077.tif.png</file>
+        <file>images/fond/imageL5r-631.tif.png</file>
+        <file>images/fond/imageL5r-364.tif.png</file>
+        <file>images/fond/imageL5r-398.tif.png</file>
+        <!--file>images/fond/imageL5r-077.tif.png</file>
         <file>images/fond/imageL5r-128.tif.png</file>
         <file>images/fond/imageL5r-171.tif.png</file>
         <file>images/fond/imageL5r-183.tif.png</file>
@@ -56,10 +59,8 @@
         <file>images/fond/imageL5r-287.tif.png</file>
         <file>images/fond/imageL5r-342.tif.png</file>
         <file>images/fond/imageL5r-353.tif.png</file>
-        <file>images/fond/imageL5r-364.tif.png</file>
         <file>images/fond/imageL5r-366.tif.png</file>
         <file>images/fond/imageL5r-381.tif.png</file>
-        <file>images/fond/imageL5r-398.tif.png</file>
         <file>images/fond/imageL5r-400.tif.png</file>
         <file>images/fond/imageL5r-421.tif.png</file>
         <file>images/fond/imageL5r-439.tif.png</file>
@@ -78,7 +79,6 @@
         <file>images/fond/imageL5r-615.tif.png</file>
         <file>images/fond/imageL5r-617.tif.png</file>
         <file>images/fond/imageL5r-624.tif.png</file>
-        <file>images/fond/imageL5r-631.tif.png</file>
         <file>images/fond/imageL5r-642.tif.png</file>
         <file>images/fond/imageL5r-653.tif.png</file>
         <file>images/fond/imageL5r-664.tif.png</file>
@@ -106,7 +106,7 @@
         <file>images/fond/imageL5r-971.tif.png</file>
         <file>images/fond/imageL5r-980.tif.png</file>
         <file>images/fond/imageL5r-1019.tif.png</file>
-        <file>images/fond/imageL5r-1026.tif.png</file>
+        <file>images/fond/imageL5r-1026.tif.png</file-->
         <file>fonts/cezanne.TTF</file>
         <file>fonts/GOUDOSI.TTF</file>
         <file>fonts/GOUDY___.TTF</file>

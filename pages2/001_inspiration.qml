@@ -146,15 +146,15 @@ Item {
             }
             ListElement {
                 name: "Films"
-                index:8
+                index:7
             }
             ListElement {
                 name: "Musiques"
-                index:9
+                index:8
             }
             ListElement {
                 name: "Histoire"
-                index:11
+                index:10
             }
         }
     }
@@ -183,25 +183,28 @@ Item {
             image3.opacity =1.0
             listView1.opacity = 0.0
         }
-        else if(idState == 6)
+        else if(idState == 5)
         {
             image2.source = "qrc:/images/sources/asimovFondation.jpg"
             image2.opacity =1.0
             listView1.opacity = 0.0
+            image3.scale = 1.0
         }
-        else if(idState == 7)
+        else if(idState == 6)
         {
             image2.source = "qrc:/images/sources/gagnerguerre_jp_jaworski.jpg"
             image2.opacity =1.0
             image3.source = "qrc:/images/sources/enferfibuste.jpg"
             image3.opacity =1.0
+            image3.scale = 2.0
             listView1.opacity = 0.0
         }
-        else if(idState == 10)
+        else if(idState == 9)
         {
             image2.source = "qrc:/images/sources/lecoledumicrodargent.jpg"
             image2.opacity =1.0
             listView1.opacity = 0.0
+            image3.scale = 1.0
         }
         else{
             image2.opacity =0.0
@@ -222,6 +225,7 @@ Item {
         Image {
             id: image2
             width: parent.width/2
+            height: parent.height/2
             fillMode: Image.PreserveAspectFit
             opacity: 0.0
             Behavior on opacity {

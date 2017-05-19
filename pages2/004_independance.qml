@@ -30,7 +30,7 @@ Item {
         width: Screen.width*0.5
         height: Screen.height*0.01
         color: "black"
-        text: qsTr("Explications")
+        text: qsTr("L’indépendance")
         anchors.horizontalCenterOffset: 1
         font.family: title.name
         font.bold: true

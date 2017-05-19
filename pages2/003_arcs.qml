@@ -1,5 +1,6 @@
 import QtQuick 2.0
 import QtQuick.Window 2.2
+import QtQuick.Controls 1.4
 
 Item {
     id: jdr
@@ -30,7 +31,7 @@ Item {
         width: Screen.width*0.5
         height: Screen.height*0.01
         color: "black"
-        text: qsTr("Explications")
+        text: qsTr("Les intrigues par arc narratif")
         anchors.horizontalCenterOffset: 1
         font.family: title.name
         font.bold: true
@@ -42,7 +43,6 @@ Item {
     focus: true
     Keys.onUpPressed: {
             --idState
-
     }
     Keys.onDownPressed: {
             ++idState
@@ -54,67 +54,50 @@ Item {
          repeat: false
          onTriggered: app.currentItemChanged(view.currentItem)
      }
-    ListView {
-        id: listView1
-        x: Screen.width/4
-        y: Screen.height/4
-        width: Screen.width/2
-        height: Screen.height/2
-        delegate: Item {
-            width: Screen.width/2
-            height: listView1.height/listView1.count
-                Text {
-                    color: "black"
-                    text: name
-                    font.pointSize: Screen.height/20
-                    anchors.verticalCenter: parent.verticalCenter
-                    font.bold: true
-                    font.family: localFont.name
-
-                }
-                opacity: (jdr.idState >= index ) ? 1.0: 0.0
-                Behavior on opacity {
-                    NumberAnimation {
-                        duration: 1000
-                    }
-                }
+    Column{
+        Rectangle {//"Bg des perso"
+            color: "#bbb"
+         TextArea {
+             text: "Les Pirates, Mort de Yoritomo Losaï, Village de Okawa, Asako Yumi, Otomo Akio, Mort Daigotsu Shuuki, Ubuyama-mura village, Infidélité Akodo Yumi, Yasuki Akane, Café, Guerre Mante/Araignée"
+         }
         }
-        Behavior on opacity {
-            NumberAnimation {
-                duration: 1000
-            }
+        Rectangle {//"Indépendence"
+            color: "#080"
+         TextArea {
+             text: "Vol des plantes, Les pirates, Yoritomo Losai, Asako Yumi, Ubuyama-mura village, Disparition en ville, Collocte d’impôt, Traffic de drogue"
+         }
         }
-        model: ListModel {
-            ListElement {
-                name: "Quand ?"
-                index:0
-            }
-            ListElement {
-                name: "Comment ?"
-                index:1
-            }
-            ListElement {
-                name: "Qui ?"
-                index:3
-            }
-            ListElement {
-                name: "A Quoi ?"
-                index:4
-            }
-            ListElement {
-                name: "Les clans"
-                index:8
-            }
-            ListElement {
-                name: "Les puissances étrangères"
-                index:18
-            }
-            ListElement {
-                name: "Timeline"
-                index:20
-            }
+        Rectangle {//"Décolonisation"
+            color: "#085"
+         TextArea {
+             text: ""
+         }
+        }
+        Rectangle {//"Maho"
+            color: "#580"
+         TextArea {
+             text: "Les lions perdus, Accident en ville, Aide des grues durant l’attaque de Kalani, Disparition en ville, vol de cadavres"
+         }
+        }
+        Rectangle {//"Autres"
+            color: "#085"
+         TextArea {
+             text: ""
+         }
         }
     }
+
+    /*Grid {
+        columns: 3
+        spacing: 2
+        Text {
+
+        }
+        Text {
+
+        }
+    }*/
+
     onIdStateChanged: {
         if(idState == 2)
         {

@@ -30,7 +30,7 @@ Item {
         width: Screen.width*0.5
         height: Screen.height*0.01
         color: "black"
-        text: qsTr("Explications")
+        text: qsTr("Akodo Eiichi")
         anchors.horizontalCenterOffset: 1
         font.family: title.name
         font.bold: true
@@ -86,32 +86,20 @@ Item {
         }
         model: ListModel {
             ListElement {
-                name: "Quand ?"
+                name: "Présentation"
                 index:0
             }
             ListElement {
-                name: "Comment ?"
+                name: "Objectif"
                 index:1
             }
             ListElement {
-                name: "Qui ?"
+                name: "Désir"
                 index:3
             }
             ListElement {
-                name: "A Quoi ?"
+                name: "Plan du MJ"
                 index:4
-            }
-            ListElement {
-                name: "Les clans"
-                index:8
-            }
-            ListElement {
-                name: "Les puissances étrangères"
-                index:18
-            }
-            ListElement {
-                name: "Timeline"
-                index:20
             }
         }
     }

@@ -70,40 +70,6 @@ Item {
             }
         }
     }
- /*   ListModel {
-        id: myModel
-        ListElement {
-            name: "Doji Taehime"
-            image: "qrc:/images/doji_taehime.jpg"
-        }
-        ListElement {
-            name: "Hida Shigehiro"
-            image: "qrc:/images/hida.jpg"
-        }
-        ListElement {
-            name: "Shinjo Zhia"
-            image: "qrc:/images/Zhia.jpg"
-        }
-        ListElement {
-            name: "Yogo Unmei"
-            image: "qrc:/images/YogoUnmei.png"
-        }
-        ListElement {
-            name: "Isawa Haneki"
-            image: "qrc:/images/Haneki.jpg"
-        }
-    }
-    ListView {
-        id: characterList
-        width: parent.width*0.2
-        height: parent.height
-        anchors.top: parent.top
-        anchors.topMargin: parent.height*0.1
-        anchors.bottom: parent.bottom
-        anchors.right: parent.right
-        model: myModel
-        delegate: displayItem
-    }*/
     Timer {
         id: trigger
         interval: 1001
@@ -217,6 +183,92 @@ Item {
     onIdStateChanged: {
 
     }
+    ImageMouse {
+        y: 0
+        x: parent.width - 200
+        source : "qrc:/images/Akodo_Eiichi.jpg"
+        text: "Akodo Eiichi"
+    }
+    ImageMouse {
+        y: 200
+        x: parent.width - 200
+        source : "qrc:/images/tsuruchi.jpg"
+        text: "Tsuruchi Nayu"
+    }
+    ImageMouse {
+        y: 400
+        x: parent.width - 200
+        source : "qrc:/images/Zhia.jpg"
+        text: "Shinjo Zhia"
+    }
+    ImageMouse {
+        y: 600
+        x: parent.width - 200
+        source : "qrc:/images/Bayushi_Takayoshi.png"
+        text: "Bayushi Takayoshi"
+    }
+
+
+
+    /////////////////PNJ
+    ImageMouse {
+        y: 800
+        x: parent.width - 200
+        source : "qrc:/images/pnj/Doji_Adachi.jpg"
+    }
+    ImageMouse {
+        y: 800
+        x: parent.width - 200
+        source : "qrc:/images/pnj/Ikoma_Shika.jpg"
+    }
+    ImageMouse {
+        y: 800
+        x: parent.width - 200
+        source : "qrc:/images/pnj/kakita_mitohime2.jpg"
+    }
+    ImageMouse {
+        y: 800
+        x: parent.width - 200
+        source : "qrc:/images/pnj/Mirumoto_Misara.jpg"
+    }
+    ImageMouse {
+        y: 800
+        x: parent.width - 200
+        source : "qrc:/images/pnj/Otomo_Suikihime.jpg"
+    }
+    ImageMouse {
+        y: 800
+        x: parent.width - 200
+        source : "qrc:/images/pnj/Saito.jpg"
+    }
+    ImageMouse {
+        y: 800
+        x: parent.width - 200
+        source : "qrc:/images/pnj/Shiba_karyko.jpg"
+    }
+    ImageMouse {
+        y: 800
+        x: parent.width - 200
+        source : "qrc:/images/pnj/Utaku_kimlee.jpg"
+    }
+    ImageMouse {
+        y: 800
+        x: parent.width - 200
+        source : "qrc:/images/pnj/Yoritomo_losai.jpg"
+    }
+    ImageMouse {
+        y: 800
+        x: parent.width - 200
+        source : "qrc:/images/pnj/Mirumoto Tomoe.png"
+    }
+    ImageMouse {
+        y: 800
+        x: parent.width - 200
+        source : "qrc:/images/pnj/Asako_Yumi.jpg"
+    }
+
+
+
 
     Row {
         id: imagePanel

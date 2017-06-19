@@ -30,5 +30,6 @@
         <file>pages2/019_Mort_Otomo_Akio.qml</file>
         <file>pages2/020_Mort_Daigotsu_shuuki.qml</file>
         <file>pages2/021_Village_Okawa.qml</file>
+        <file>pages2/ImageMouse.qml</file>
     </qresource>
 </RCC>

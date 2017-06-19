@@ -22,3 +22,6 @@ FORMS += \
 
 
 OTHER_FILES += *.qml pages/*.qml pages2/*.qml
+
+DISTFILES += \
+    pages2/ImageMouse.qml

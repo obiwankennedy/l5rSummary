@@ -51,7 +51,50 @@ ApplicationWindow {
 
 
     }
+    ListView {
+        id: listView1
+        x: Screen.width*0.02
+        y: Screen.height*0.3
+        width: Screen.width/2
+        height: Screen.height*0.2
+        focus: false
+        delegate: Item {
+            width: Screen.width/2
+            height: listView1.height/listView1.count
+                Text {
+                    color: view.currentIndex>=index ? "black" : "gray"
+                    text: name
+                    font.pointSize: Screen.height/40
+                    anchors.verticalCenter: parent.verticalCenter
+                    font.bold: true
+                    font.family: title.name
+                }
+        }
+        visible: true//view.currentIndex>0 ? true : false
 
+        model: ListModel {
+            ListElement {
+                name: "Introduction"
+                index:1
+            }
+            ListElement {
+                name: "Inspirations"
+                index:3
+            }
+            ListElement {
+                name: "Les personnages"//système de build, code spécifique par OS.
+                index:4
+            }
+            ListElement {
+                name: "Les intrigues"//système de build, code spécifique par OS.
+                index:9
+            }
+            ListElement {
+                name: "Fin"//système de build, code spécifique par OS.
+                index:10
+            }
+        }
+    }
 
 
     onOffsetChanged: {
@@ -225,7 +268,7 @@ ApplicationWindow {
              source: page+"/"+path
 
         }
-
+        interactive: false
         Timer {
             id: trigger
             interval: 10
@@ -270,49 +313,7 @@ ApplicationWindow {
             PathLine { x: view.width/2+view.width*cmpModel.count; y: view.height/2 }
         }
     }
-    ListView {
-        id: listView1
-        x: Screen.width*0.02
-        y: Screen.height*0.3
-        width: Screen.width/2
-        height: Screen.height*0.2
-        delegate: Item {
-            width: Screen.width/2
-            height: listView1.height/listView1.count
-                Text {
-                    color: view.currentIndex>=index ? "black" : "gray"
-                    text: name
-                    font.pointSize: Screen.height/40
-                    anchors.verticalCenter: parent.verticalCenter
-                    font.bold: true
-                    font.family: title.name
-                }
-        }
-        visible: true//view.currentIndex>0 ? true : false
 
-        model: ListModel {
-            ListElement {
-                name: "Introduction"
-                index:1
-            }
-            ListElement {
-                name: "Inspirations"
-                index:3
-            }
-            ListElement {
-                name: "Les personnages"//système de build, code spécifique par OS.
-                index:4
-            }
-            ListElement {
-                name: "Les intrigues"//système de build, code spécifique par OS.
-                index:9
-            }
-            ListElement {
-                name: "Fin"//système de build, code spécifique par OS.
-                index:10
-            }
-        }
-    }
 
     Text {
         anchors.bottom: parent.bottom

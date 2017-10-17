@@ -32,7 +32,7 @@ Item {
         color: "black"
         text: qsTr("Explications")
         anchors.horizontalCenterOffset: 1
-        font.family: title.name
+        font.family: titleFont.name
         font.bold: true
         verticalAlignment: Text.AlignVCenter
         horizontalAlignment: Text.AlignHCenter

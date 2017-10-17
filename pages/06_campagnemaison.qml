@@ -28,7 +28,7 @@ Item {
         color: "black"
         text: qsTr("Première Histoire")
         anchors.horizontalCenterOffset: 1
-        font.family: title.name
+        font.family: titleFont.name
         font.bold: true
         verticalAlignment: Text.AlignVCenter
         horizontalAlignment: Text.AlignHCenter
@@ -127,7 +127,7 @@ Item {
                 width: parent.width
                 font.bold: true
                 color: "#000"
-                font.family: title.name
+                font.family: titleFont.name
                 font.pixelSize: 20
                 horizontalAlignment: Text.AlignHCenter
             }

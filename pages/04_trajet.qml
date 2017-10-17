@@ -29,7 +29,7 @@ Item {
         color: "black"
         text: qsTr("Sur le trajet")
         anchors.horizontalCenterOffset: 1
-        font.family: title.name
+        font.family: titleFont.name
         font.bold: true
         verticalAlignment: Text.AlignVCenter
         horizontalAlignment: Text.AlignHCenter
@@ -152,7 +152,7 @@ Item {
                 font.bold: true
                 color: "#000"
                 font.pixelSize: 20
-                font.family: title.name
+                font.family: titleFont.name
                 horizontalAlignment: Text.AlignHCenter
             }
         }

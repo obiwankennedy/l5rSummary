@@ -32,7 +32,7 @@ Item {
         verticalAlignment: Text.AlignVCenter
         horizontalAlignment: Text.AlignHCenter
         font.pixelSize: Screen.height/15
-        font.family: title.name
+        font.family: titleFont.name
     }
     focus: true
     Keys.onUpPressed: {
@@ -62,7 +62,7 @@ Item {
                 anchors.topMargin: img.sourceSize.height > img.sourceSize.width ? img.paintedHeight-img.height : (img.paintedHeight-img.height)/2
                 text: name
                 width: parent.width
-                font.family: title.name
+                font.family: titleFont.name
                 font.bold: true
                 color: "#000"
                 font.pixelSize: 20

@@ -18,18 +18,10 @@
         <file>pages2/001_inspiration.qml</file>
         <file>pages2/000_intro.qml</file>
         <file>pages2/009_intrigues.qml</file>
-        <file>pages2/010_Lion_Perdu.qml</file>
-        <file>pages2/011_Vol_de_plante.qml</file>
         <file>pages2/012_maho.qml</file>
-        <file>pages2/013_pirates.qml</file>
-        <file>pages2/014_yoritomo_losai.qml</file>
-        <file>pages2/015_village_misara.qml</file>
-        <file>pages2/016_guerre_mante_araignee.qml</file>
-        <file>pages2/017_traffic_de_drogues.qml</file>
-        <file>pages2/018_Asako_Yumi.qml</file>
-        <file>pages2/019_Mort_Otomo_Akio.qml</file>
-        <file>pages2/020_Mort_Daigotsu_shuuki.qml</file>
-        <file>pages2/021_Village_Okawa.qml</file>
         <file>pages2/ImageMouse.qml</file>
+        <file>pages2/SlidePage.qml</file>
+        <file>pages2/001bis_les_outils.qml</file>
+        <file>pages2/013_bilan.qml</file>
     </qresource>
 </RCC>

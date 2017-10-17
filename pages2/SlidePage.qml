@@ -8,8 +8,6 @@ Item {
     property int idState: 0
     property alias  title: text1.text
     property alias view: listView1
-    property alias slideCode: slideCode
-
     MouseArea {
         anchors.fill: parent
         onClicked: root.focus = true
@@ -22,9 +20,10 @@ Item {
         anchors.bottom: image1.bottom
         width: root.width*0.5
         height: root.height*0.01
-        color: "white"
+        color: "black"
         anchors.horizontalCenterOffset: 1
-        font.family: "Verdana"
+        font.family: titleFont.name
+
         font.bold: true
         verticalAlignment: Text.AlignVCenter
         horizontalAlignment: Text.AlignHCenter
@@ -39,8 +38,8 @@ Item {
         anchors.top: parent.top
         anchors.leftMargin: root.width*0.04
         fillMode: Image.PreserveAspectFit
-        width: root.width*0.05
-        height: root.height*0.1
+        width: root.width*0.2
+        height: root.height*0.2
     }
     Keys.onUpPressed: {
         console.log("up")
@@ -70,25 +69,24 @@ Item {
          repeat: false
          onTriggered: app.currentItemChanged(view.currentItem)
      }
-    ListView {
-        id: listView1
-        x: root.width*0.1
-        y: root.height*0.2
-        width: root.width/2
-        height: root.height*0.75
-        delegate: Item {
+    Component {
+        id: compose
+        Item {
+            id: delegateView
             width: root.width/2
             height: listView1.height/listView1.count
                 Text {
-                    color: "white"
+                    id: textView
+                    color: "black"
                     text: name
-                    font.pointSize: root.height > 0 ? root.height/28 : 1
+                    font.pointSize: root.height > 0 ? root.height/25 : 1
                     anchors.verticalCenter: parent.verticalCenter
-                    font.bold: false
+                    font.bold: true
+                    font.family: localFont.name
                     wrapMode: Text.WordWrap
                     elide: Text.ElideLeft
                     onLinkActivated: Qt.openUrlExternally(link)
-                    linkColor: "white"
+                    linkColor: "black"
                     textFormat: Text.StyledText
 
                 }
@@ -99,8 +97,14 @@ Item {
                     }
                 }
         }
-
-
+    }
+    ListView {
+        id: listView1
+        x: root.width*0.2
+        y: root.height*0.2
+        width: root.width/2
+        height: root.height*0.75
+        delegate: compose
     }
     TextEdit {
             id: text
@@ -108,19 +112,9 @@ Item {
             text:""
             visible: false
             anchors.fill: view
-            color: "white"
+            color: "black"
             font.pixelSize: parent.height*0.03
             textFormat: TextEdit.RichText
-
-    }
-    CodePage {
-        id: slideCode
-        visible: false
-
-        x:0
-        y:parent.height*0.2
-        width: parent.width
-        height: parent.height*0.8
 
     }
 }

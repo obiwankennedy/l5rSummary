@@ -11,6 +11,12 @@ Item {
         fillMode: Image.PreserveAspectFit
         verticalAlignment :  Image.AlignTop
         horizontalAlignment: Image.AlignLeft
+        Behavior on scale {
+            NumberAnimation {
+                duration: 500
+            }
+        }
+
         MouseArea {
             anchors.fill: parent
             property int previousX : 0
@@ -19,10 +25,17 @@ Item {
                 previousX = mouse.x
                 previousY = mouse.y
                 parent.focus = true
+                root.scale = 1.5
             }
+            onReleased: {
+                root.scale = 1.0
+            }
+
             onPositionChanged: {
                 root.x += mouse.x-previousX
                 root.y += mouse.y-previousY
+                console.log(text+" X:"+root.x+" Y:"+root.y)
+
             }
         }
     }
@@ -30,7 +43,7 @@ Item {
         id: rect
         color: "black"
         height: 20
-        width: image.paintedWidth
+        width: Math.max(name.implicitWidth,image.paintedWidth)
         x:0
         y: image.paintedHeight
 

@@ -28,7 +28,7 @@ Item {
         color: "black"
         text: qsTr("Fin de l'acte 1")
         anchors.horizontalCenterOffset: 1
-        font.family: title.name
+        font.family: titleFont.name
         font.bold: true
         verticalAlignment: Text.AlignVCenter
         horizontalAlignment: Text.AlignHCenter
@@ -113,7 +113,7 @@ Item {
                 anchors.topMargin: img.sourceSize.height > img.sourceSize.width ? img.paintedHeight-img.height : (img.paintedHeight-img.height)/2
                 text: name
                 width: parent.width
-                font.family: title.name
+                font.family: titleFont.name
 
                 font.bold: true
                 color: "#000"

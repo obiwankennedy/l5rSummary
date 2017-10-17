@@ -3,7 +3,6 @@ import QtQuick.Window 2.2
 import QtQml.Models 2.2
 import QtQuick.Controls 1.4
 import QtQuick.Dialogs 1.2
-//import Qt.labs.presentation 1.0
 import QtGraphicalEffects 1.0
 
 
@@ -19,7 +18,7 @@ ApplicationWindow {
     property alias current: view.currentIndex
     property alias offset: view.offset
 
-    FontLoader { id: title; source: "qrc:/fonts/Present-lt-black-condensed.ttf" }
+    FontLoader { id: titleFont; source: "qrc:/fonts/Present-lt-black-condensed.ttf" }
     FontLoader { id: localFont; source: "qrc:/fonts/KUDASAI_.TTF" }
 
     Image {
@@ -67,7 +66,7 @@ ApplicationWindow {
                     font.pointSize: Screen.height/40
                     anchors.verticalCenter: parent.verticalCenter
                     font.bold: true
-                    font.family: title.name
+                    font.family: titleFont.name
                 }
         }
         visible: true//view.currentIndex>0 ? true : false
@@ -75,11 +74,11 @@ ApplicationWindow {
         model: ListModel {
             ListElement {
                 name: "Introduction"
-                index:1
+                index:0
             }
             ListElement {
                 name: "Inspirations"
-                index:3
+                index:1
             }
             ListElement {
                 name: "Les personnages"//système de build, code spécifique par OS.
@@ -205,6 +204,12 @@ ApplicationWindow {
                 name: "Mes inspirations"
                 path: "001_inspiration.qml"
                 time: 1
+                next: "Outils"
+            }
+            ListElement {
+                name: "Les outils"
+                path: "001bis_les_outils.qml"
+                time: 1
                 next: "Résumé"
             }
             ListElement {
@@ -248,7 +253,19 @@ ApplicationWindow {
                 name: "L’indépendance"
                 path: "004_independance.qml"
                 time: 1
-                next: "Akodo Eiichi"
+                next: "Les Maho"
+            }
+            ListElement {
+                name: "Les Maho"
+                path: "012_maho.qml"
+                time: 1
+                next: "Le bilan"
+            }
+            ListElement {
+                name: "Le bilan"
+                path: "013_bilan.qml"
+                time: 1
+                next: ""
             }
         }
     //Component.onCompleted: app.currentItemChanged(0)
@@ -266,6 +283,8 @@ ApplicationWindow {
         delegate:  Loader {
             //property variant model: model
              source: page+"/"+path
+             width: app.width
+             height: app.height
 
         }
         interactive: false

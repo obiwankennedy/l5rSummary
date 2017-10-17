@@ -25,7 +25,7 @@ Item {
         height: Screen.height*0.1
         color: "black"
         text: qsTr("Compte-Rendu de Campagne")
-        font.family: title.name
+        font.family: titleFont.name
         font.bold: true
         verticalAlignment: Text.AlignVCenter
         horizontalAlignment: Text.AlignHCenter
@@ -39,7 +39,7 @@ Item {
         anchors.right: parent.right
         text: qsTr("ObiWanKennedy")
         font.pixelSize: Screen.height/20
-        font.family: title.name
+        font.family: titleFont.name
     }
 
     Image {
